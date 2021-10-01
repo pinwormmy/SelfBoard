@@ -7,14 +7,35 @@
 	<title>게시판 첫 화면</title>
 </head>
 <body>
-<h1>
-	게시판 공부 다시 시작
-</h1>
+	<h1>
+		게시판 공부 다시 시작
+	</h1>
+	
+	<P>  현재시각은 ${serverTime}입니다. </P>
+	<P> 
+		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현하고자함 <br />
+		원래는 첫화면인 home.jsp에서 바로 게시판 띄울 예정
+	</P>
 
-<P>  현재시각은 ${serverTime}입니다. </P>
-<P> 
-	기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현하고자함 <br />
-	원래는 첫화면인 home.jsp에서 바로 게시판 띄울 예정
-</P>
+	<table>
+		<thead>
+			<tr>
+				<th>글번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${list}" var="list">
+				<tr>
+					<td>${list.sno}</td>
+					<td>${list.title}</td>
+					<td>${list.writer}</td>
+					<td>${list.view_cnt}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>

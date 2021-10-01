@@ -2,6 +2,7 @@ package com.study.sboard;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -11,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.study.sboard.SBoardService.SBoardService;
+import com.study.sboard.SBoardVO.SBoardVO;
+
 /**
  * Handles requests for the application home page.
  */
@@ -18,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
+	private SBoardService sboardService;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -32,6 +38,16 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+		
+		// 게시판 호출
+		List<SBoardVO> list = null;
+		try {
+			list = sboardService.list();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		model.addAttribute("list", list);
 		
 		return "home";
 	}
