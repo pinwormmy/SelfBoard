@@ -40,6 +40,7 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		// 게시판 호출
+		
 		List<SBoardVO> list = null;
 		try {
 			list = sboardService.list();
