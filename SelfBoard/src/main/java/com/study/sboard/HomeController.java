@@ -27,10 +27,12 @@ public class HomeController {
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
+		
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
@@ -40,16 +42,10 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		// 게시판 호출
-		
-		List<SBoardVO> list = null;
-		try {
-			list = sboardService.list();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		/*
+		List<SBoardVO> list = sboardService.list();
 		model.addAttribute("list", list);
-		
+		*/
 		return "home";
 	}
 	
