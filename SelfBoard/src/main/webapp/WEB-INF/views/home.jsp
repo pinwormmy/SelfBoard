@@ -29,12 +29,12 @@
 		<tbody>
 			<c:forEach items="${list}" var="list">
 				<tr>
-					<td>${list.sno}</td>
-					<td>${list.title}</td>
-					<td>${list.writer}</td>
-					<td>${list.view_cnt}</td>
+					<td style="width:30px;">${list.sno}  </td>
+					<td>${list.title}  </td>
+					<td>${list.writer}  </td>
+					<td>${list.view_cnt}  </td>
 				</tr>
-			</c:forEach>
+			</c:forEach>			
 		</tbody>
 	</table>
 	

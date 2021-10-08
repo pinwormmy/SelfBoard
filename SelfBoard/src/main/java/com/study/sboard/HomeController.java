@@ -28,7 +28,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model){
+	public String home(Locale locale, Model model, Model model2) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		
@@ -39,16 +39,9 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		List<SBoardVO> list = sboardService.list();
+		model2.addAttribute("list", list);
+			
 		return "home";
-	}
-	
-	
-	/*
-	@RequestMapping("test")
-	public String boardTest(Model model) throws Exception {
-		model.addAttribute("list", sboardService.list());
-		return "boardTest";
-	}
-	*/
-	
+	}	
 }
