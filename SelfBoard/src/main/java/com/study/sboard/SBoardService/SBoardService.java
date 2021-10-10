@@ -8,4 +8,6 @@ public interface SBoardService {
 	
 	public List<SBoardVO> list() throws Exception;
 
+	public void write(SBoardVO sboardVO);
+
 }

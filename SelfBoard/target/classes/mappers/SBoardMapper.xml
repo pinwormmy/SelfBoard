@@ -7,5 +7,8 @@
 	resultType="com.study.sboard.SBoardVO.SBoardVO">
 		select sno, title, writer, view_cnt FROM stbl
 	</select>
-
+	<insert id="insert" parameterType="com.study.sboard.SBoardVO.SBoardVO">
+		insert into stbl (sno, title, writer, content, view_cnt) 
+		values(#{sno},#{title},#{writer},#{content}, 0)
+	</insert>
 </mapper>

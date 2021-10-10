@@ -29,7 +29,7 @@
 		<tbody>
 			<c:forEach items="${list}" var="list">
 				<tr>
-					<td style="width:30px;">${list.sno}  </td>
+					<td>${list.sno}  </td>
 					<td>${list.title}  </td>
 					<td>${list.writer}  </td>
 					<td>${list.view_cnt}  </td>
@@ -37,6 +37,8 @@
 			</c:forEach>			
 		</tbody>
 	</table>
+	
+	<a href="write"><button>글쓰기</button></a>
 	
 </body>
 </html>

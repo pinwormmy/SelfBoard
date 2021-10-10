@@ -17,8 +17,12 @@ public class SBoardDAOImpl implements SBoardDAO {
 
 	@Override
 	public List<SBoardVO> list() throws Exception {
-		// TODO Auto-generated method stub
 		return sqlSession.selectList(Namespace + ".list");
+	}
+
+	@Override
+	public void write(SBoardVO sboardVO) {
+		sqlSession.insert(Namespace + ".insert");
 	}
 
 }

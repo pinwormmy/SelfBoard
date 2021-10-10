@@ -16,8 +16,12 @@ public class SBoardServiceImpl implements SBoardService {
 
 	@Override
 	public List<SBoardVO> list() throws Exception {
-		// TODO Auto-generated method stub
 		return sboardDAO.list();
+	}
+
+	@Override
+	public void write(SBoardVO sboardVO) {
+		sboardDAO.write(sboardVO);
 	}
 
 	

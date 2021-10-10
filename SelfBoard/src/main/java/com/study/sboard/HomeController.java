@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.sboard.SBoardService.SBoardService;
 import com.study.sboard.SBoardVO.SBoardVO;
@@ -28,7 +29,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model, Model model2) throws Exception{
+	public String home(Locale locale, Model model) throws Exception{
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		
@@ -40,8 +41,22 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		List<SBoardVO> list = sboardService.list();
-		model2.addAttribute("list", list);
+		model.addAttribute("list", list);
 			
 		return "home";
-	}	
+	}
+	
+	@RequestMapping(value="/write")
+	public String write() {
+		return "write";
+	}
+	
+	@RequestMapping(value="/write", method = RequestMethod.POST)
+	public String writesubmit(SBoardVO sboardVO, RedirectAttributes rttr) {
+	
+		sboardService.write(sboardVO);
+		
+		return "redirect:/";
+	}
+	
 }

@@ -7,5 +7,7 @@ import com.study.sboard.SBoardVO.SBoardVO;
 public interface SBoardDAO {
 	
 	public List<SBoardVO> list() throws Exception;
+	
+	public void write(SBoardVO sboardVO);
 
 }
