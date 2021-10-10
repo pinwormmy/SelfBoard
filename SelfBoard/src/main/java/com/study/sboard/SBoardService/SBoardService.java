@@ -6,8 +6,10 @@ import com.study.sboard.SBoardVO.SBoardVO;
 
 public interface SBoardService {
 	
+	// 글 목록
 	public List<SBoardVO> list() throws Exception;
 
+	// 글 작성
 	public void write(SBoardVO sboardVO);
 
 }

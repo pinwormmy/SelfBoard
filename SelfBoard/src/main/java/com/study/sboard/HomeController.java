@@ -10,8 +10,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.sboard.SBoardService.SBoardService;
@@ -40,23 +42,26 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		// 게시판 글목록
 		List<SBoardVO> list = sboardService.list();
 		model.addAttribute("list", list);
 			
 		return "home";
 	}
 	
+	// 글쓰기 버튼 눌러서 작성 페이지 이동
 	@RequestMapping(value="/write")
 	public String write() {
 		return "write";
 	}
 	
-	@RequestMapping(value="/write", method = RequestMethod.POST)
-	public String writesubmit(SBoardVO sboardVO, RedirectAttributes rttr) {
+	// 글 작성 완료 누르면 글 게시하고 다시 글목록 으로 복귀
+	@RequestMapping(value="/writesubmit")
+	public String writesubmit(@RequestParam String writer) {
 	
-		sboardService.write(sboardVO);
+		System.out.println("글작성자 디비 넘언오나 : " + writer);
 		
-		return "redirect:/";
+		return "redirect/home";
 	}
 	
 }

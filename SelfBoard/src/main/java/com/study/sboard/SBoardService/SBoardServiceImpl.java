@@ -14,16 +14,15 @@ public class SBoardServiceImpl implements SBoardService {
 	@Autowired
 	private SBoardDAO sboardDAO;
 
+	// 게시물 목록
 	@Override
 	public List<SBoardVO> list() throws Exception {
 		return sboardDAO.list();
 	}
 
+	// 게시물 작성
 	@Override
 	public void write(SBoardVO sboardVO) {
 		sboardDAO.write(sboardVO);
 	}
-
-	
-
 }
