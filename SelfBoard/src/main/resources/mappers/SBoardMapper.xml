@@ -11,6 +11,6 @@
 	
 	<insert id="write" parameterType="com.study.sboard.SBoardVO.SBoardVO">
 		insert into stbl
-			values(6,#{title},#{writer},#{content}, 0)
+			values(6, #{title}, #{writer}, #{content}, 0)
 	</insert>
 </mapper>

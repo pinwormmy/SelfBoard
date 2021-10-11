@@ -22,7 +22,7 @@ public class SBoardDAOImpl implements SBoardDAO {
 
 	@Override
 	public void write(SBoardVO sboardVO) {
-		sqlSession.insert(Namespace + ".write");
+		sqlSession.insert(Namespace + ".write", sboardVO);
 	}
 
 }

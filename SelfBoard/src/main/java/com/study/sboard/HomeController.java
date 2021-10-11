@@ -57,11 +57,11 @@ public class HomeController {
 	
 	// 글 작성 완료 누르면 글 게시하고 다시 글목록 으로 복귀
 	@RequestMapping(value="/writesubmit")
-	public String writesubmit(@RequestParam String writer) {
+	public String writesubmit(SBoardVO vo) {
 	
-		System.out.println("글작성자 디비 넘언오나 : " + writer);
+		sboardService.write(vo);
 		
-		return "redirect/home";
+		return "redirect:/";
 	}
 	
 }
