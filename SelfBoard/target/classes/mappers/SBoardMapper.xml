@@ -9,7 +9,7 @@
 	</select>
 	
 	<insert id="write" parameterType="com.study.sboard.SBoardVO.SBoardVO">
-		insert into stbl
-			values(#{sno}, #{writer}, #{title}, #{content}, 0)
+		insert into stbl(title, writer, content)
+			values(#{title}, #{writer}, #{content})
 	</insert>
 </mapper>
