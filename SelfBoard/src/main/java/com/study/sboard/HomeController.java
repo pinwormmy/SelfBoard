@@ -64,4 +64,9 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping(value="/Bpost")
+	public String bpost() {
+		return "Bpost";
+	}
+	
 }
