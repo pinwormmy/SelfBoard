@@ -12,4 +12,10 @@
 		insert into stbl(title, writer, content)
 			values(#{title}, #{writer}, #{content})
 	</insert>
+	
+	<select id="read" parameterType="int" resultType="com.study.sboard.SBoardVO.SBoardVO">
+		select sno, title, writer, content, view_cnt 
+			FROM stbl
+			WHERE sno=#{sno}
+	</select>
 </mapper>

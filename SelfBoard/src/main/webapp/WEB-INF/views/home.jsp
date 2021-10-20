@@ -31,7 +31,7 @@
 				<tr>
 					<td>${list.sno}  </td>
 					<td>
-						<a href="Bpost" style="text-decoration:none">${list.title}</a>
+						<a href="Bpost?sno=${list.sno}" style="text-decoration:none">${list.title}</a>
 					</td>
 					<td>${list.writer}  </td>
 					<td>${list.view_cnt}  </td>

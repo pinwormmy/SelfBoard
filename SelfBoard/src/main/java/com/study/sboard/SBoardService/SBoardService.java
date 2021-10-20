@@ -12,4 +12,6 @@ public interface SBoardService {
 	// 글 작성
 	public void write(SBoardVO sboardVO);
 
+	public List<SBoardVO> read(int sno);
+
 }

@@ -25,4 +25,9 @@ public class SBoardDAOImpl implements SBoardDAO {
 		sqlSession.insert(Namespace + ".write", sboardVO);
 	}
 
+	@Override
+	public List<SBoardVO> read(int sno) {
+		return sqlSession.selectOne(Namespace + ".read", sno);
+	}
+
 }

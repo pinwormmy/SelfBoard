@@ -25,4 +25,9 @@ public class SBoardServiceImpl implements SBoardService {
 	public void write(SBoardVO sboardVO) {
 		sboardDAO.write(sboardVO);
 	}
+
+	@Override
+	public List<SBoardVO> read(int sno) {
+		return sboardDAO.read(sno);
+	}
 }

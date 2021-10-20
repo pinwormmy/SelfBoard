@@ -10,4 +10,6 @@ public interface SBoardDAO {
 	
 	public void write(SBoardVO sboardVO);
 
+	public List<SBoardVO> read(int sno);
+
 }

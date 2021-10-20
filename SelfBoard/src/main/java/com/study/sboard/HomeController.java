@@ -65,7 +65,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/Bpost")
-	public String bpost() {
+	public String bpost(@RequestParam int sno, Model model) throws Exception {
+		List<SBoardVO> read = sboardService.read(sno);
+		model.addAttribute("read", read);
+		
 		return "Bpost";
 	}
 	
