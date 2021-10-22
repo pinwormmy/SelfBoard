@@ -16,6 +16,12 @@
 		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현하고자함 <br />
 		메인 페이지부터 바로 게시판 띄운다
 	</P>
+	
+	<style type="text/css">
+		a {color:black;}
+		a {text-decoration:none;}
+		a:hover {text-decoration:underline;}
+	</style>
 
 	<table>
 		<thead>
@@ -30,9 +36,7 @@
 			<c:forEach items="${list}" var="list">
 				<tr>
 					<td>${list.sno}  </td>
-					<td>
-						<a href="Bpost?sno=${list.sno}" style="text-decoration:none">${list.title}</a>
-					</td>
+					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>
 					<td>${list.writer}  </td>
 					<td>${list.view_cnt}  </td>
 				</tr>

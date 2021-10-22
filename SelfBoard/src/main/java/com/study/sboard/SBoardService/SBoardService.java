@@ -12,6 +12,10 @@ public interface SBoardService {
 	// 글 작성
 	public void write(SBoardVO sboardVO);
 
-	public List<SBoardVO> read(int sno);
+	public SBoardVO read(int sno);
+
+	public void delete(int sno);
+
+	public void modify(SBoardVO vo);
 
 }

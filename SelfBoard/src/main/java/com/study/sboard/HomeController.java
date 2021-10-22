@@ -2,6 +2,7 @@ package com.study.sboard;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -64,12 +65,35 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/Bpost")
-	public String bpost(@RequestParam int sno, Model model) throws Exception {
-		List<SBoardVO> read = sboardService.read(sno);
-		model.addAttribute("read", read);
+	@RequestMapping(value="/Bpost", method = RequestMethod.GET)
+	public String bpost(int sno, Model model) throws Exception {
 		
+		SBoardVO read = sboardService.read(sno);
+		model.addAttribute("read", read);
+	
 		return "Bpost";
 	}
 	
+	@RequestMapping(value="/delete")
+	public String delete(int sno) {
+		sboardService.delete(sno);
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/modify")
+	public String modify(int no, Model model) {
+		SBoardVO read = sboardService.read(no);
+		model.addAttribute("read", read);
+		
+		return "modify";
+	}
+	
+	
+	@RequestMapping(value="/modifysubmit")
+	public String modifysubmit(SBoardVO vo) {
+	
+		sboardService.modify(vo);
+		
+		return "redirect:/";
+	}
 }

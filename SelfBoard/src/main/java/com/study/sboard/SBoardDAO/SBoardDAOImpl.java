@@ -26,8 +26,18 @@ public class SBoardDAOImpl implements SBoardDAO {
 	}
 
 	@Override
-	public List<SBoardVO> read(int sno) {
+	public SBoardVO read(int sno) {
 		return sqlSession.selectOne(Namespace + ".read", sno);
+	}
+
+	@Override
+	public void delete(int sno) {
+		sqlSession.delete(Namespace + ".delete", sno);
+	}
+
+	@Override
+	public void modify(SBoardVO vo) {
+		sqlSession.update(Namespace + ".modify", vo);
 	}
 
 }

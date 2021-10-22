@@ -26,8 +26,20 @@ public class SBoardServiceImpl implements SBoardService {
 		sboardDAO.write(sboardVO);
 	}
 
+	// 게시물 읽기
 	@Override
-	public List<SBoardVO> read(int sno) {
+	public SBoardVO read(int sno) {
 		return sboardDAO.read(sno);
+	}
+
+	@Override
+	public void delete(int sno) {
+		sboardDAO.delete(sno);
+	}
+
+	@Override
+	public void modify(SBoardVO vo) {
+		System.out.println("서비스과정 결과 : " + vo);
+		sboardDAO.modify(vo);
 	}
 }
