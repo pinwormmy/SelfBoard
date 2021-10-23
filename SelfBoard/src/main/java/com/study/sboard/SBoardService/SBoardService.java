@@ -18,4 +18,6 @@ public interface SBoardService {
 
 	public void modify(SBoardVO vo);
 
+	public void postviews(int sno);
+
 }

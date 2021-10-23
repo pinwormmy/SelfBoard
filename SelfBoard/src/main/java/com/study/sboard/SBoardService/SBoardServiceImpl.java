@@ -39,7 +39,10 @@ public class SBoardServiceImpl implements SBoardService {
 
 	@Override
 	public void modify(SBoardVO vo) {
-		System.out.println("서비스과정 결과 : " + vo);
 		sboardDAO.modify(vo);
+	}
+
+	public void postviews(int sno) {
+		sboardDAO.postviews(sno);
 	}
 }

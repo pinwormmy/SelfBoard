@@ -40,4 +40,9 @@ public class SBoardDAOImpl implements SBoardDAO {
 		sqlSession.update(Namespace + ".modify", vo);
 	}
 
+	@Override
+	public void postviews(int sno) {
+		sqlSession.update(Namespace + ".postviews", sno);
+	}
+
 }

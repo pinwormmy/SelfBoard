@@ -70,6 +70,8 @@ public class HomeController {
 		
 		SBoardVO read = sboardService.read(sno);
 		model.addAttribute("read", read);
+		
+		sboardService.postviews(sno);
 	
 		return "Bpost";
 	}

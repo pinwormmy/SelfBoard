@@ -19,7 +19,7 @@
 			FROM stbl
 			WHERE sno=#{sno}
 	</select>
-	
+
 	<delete id="delete" parameterType="int">
 		delete from stbl where sno=#{sno}
 	</delete>
@@ -31,4 +31,10 @@
 				content=#{content}
 			WHERE sno=#{sno}
 	</update>
+	
+	<update id="postviews" parameterType="int">
+		update stbl set view_cnt=view_cnt+1 
+			WHERE sno=#{sno}
+	</update>
+
 </mapper>
