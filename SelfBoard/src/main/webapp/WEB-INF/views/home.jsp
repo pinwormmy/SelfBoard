@@ -39,6 +39,7 @@
 					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>
 					<td>${list.writer}  </td>
 					<td>${list.view_cnt}  </td>
+					<td>%{list.time}</td>
 				</tr>
 			</c:forEach>			
 		</tbody>
