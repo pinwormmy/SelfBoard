@@ -1,13 +1,15 @@
 package com.study.sboard.SBoardVO;
 
+import java.sql.Timestamp;
+
 public class SBoardVO {
 	
 	private int sno;
 	private String writer;
 	private String title;
 	private String content;
+	private Timestamp writingtime; 
 	private int view_cnt;
-	
 	
 	public int getSno() {
 		return sno;
@@ -39,5 +41,14 @@ public class SBoardVO {
 	public void setView_cnt(int view_cnt) {
 		this.view_cnt = view_cnt;
 	}
+	
+	public Timestamp getWritingtime() {
+		return writingtime;
+	}
+	public void setWritingtime(Timestamp writingtime) {
+		this.writingtime = writingtime;
+	}
+	
+	
 	
 }

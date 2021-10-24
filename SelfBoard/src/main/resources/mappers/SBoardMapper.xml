@@ -5,7 +5,7 @@
 
 	<select id="list" parameterType="com.study.sboard.SBoardVO.SBoardVO" 
 	resultType="com.study.sboard.SBoardVO.SBoardVO">
-		select sno, title, writer, view_cnt FROM stbl
+		select sno, title, writer, writingtime, view_cnt FROM stbl
 	</select>
 	
 	<insert id="write" parameterType="com.study.sboard.SBoardVO.SBoardVO">
@@ -15,7 +15,7 @@
 	
 	<select id="read" parameterType="int" 
 	resultType="com.study.sboard.SBoardVO.SBoardVO">
-		select sno, title, writer, content, view_cnt 
+		select sno, title, writer, content, writingtime, view_cnt 
 			FROM stbl
 			WHERE sno=#{sno}
 	</select>
@@ -28,6 +28,7 @@
 		update stbl
 			SET title=#{title},
 				writer=#{writer},
+				writingtime=NOW(),
 				content=#{content}
 			WHERE sno=#{sno}
 	</update>

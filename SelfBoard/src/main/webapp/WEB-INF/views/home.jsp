@@ -29,6 +29,7 @@
 				<th>글번호</th>
 				<th>제목</th>
 				<th>작성자</th>
+				<th>작성일</th>
 				<th>조회수</th>
 			</tr>
 		</thead>
@@ -38,8 +39,9 @@
 					<td>${list.sno}  </td>
 					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>
 					<td>${list.writer}  </td>
+					<td>${list.writingtime}</td>
 					<td>${list.view_cnt}  </td>
-					<td>%{list.time}</td>
+					
 				</tr>
 			</c:forEach>			
 		</tbody>
