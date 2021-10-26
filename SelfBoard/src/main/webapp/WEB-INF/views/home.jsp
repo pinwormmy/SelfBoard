@@ -5,6 +5,13 @@
 <html>
 <head>
 	<title>게시판 첫 화면</title>
+	<style type="text/css">
+		a {color:black;}
+		a {text-decoration:none;}
+		a:hover {text-decoration:underline;}
+		
+		div{width: 45%; text-align:right;}
+	</style>
 </head>
 <body>
 	<h1>
@@ -17,12 +24,6 @@
 		메인 페이지부터 바로 게시판 띄운다
 	</P>
 	
-	<style type="text/css">
-		a {color:black;}
-		a {text-decoration:none;}
-		a:hover {text-decoration:underline;}
-	</style>
-
 	<table>
 		<thead>
 			<tr>
@@ -47,9 +48,19 @@
 		</tbody>
 	</table>
 	
-	<input type="text" name="search" value=" ">
+	<select name="searchOption">
+		<option value="제목+내용">제목+내용</option>
+		<option value="제목">제목</option>
+		<option value="내용">내용</option>
+		<option value="작성자">작성자</option>
+	</select>
+	<input type="text" name="search">
+	<input type="submit" value="검색">
 	
-	<a href="write"><button>글쓰기</button></a>
+	<div>
+		<a href="write"><button>글쓰기</button></a>
+	</div>
+	
 	
 </body>
 </html>
