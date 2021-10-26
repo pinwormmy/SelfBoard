@@ -47,6 +47,8 @@
 		</tbody>
 	</table>
 	
+	<input type="text" name="search" value=" ">
+	
 	<a href="write"><button>글쓰기</button></a>
 	
 </body>
