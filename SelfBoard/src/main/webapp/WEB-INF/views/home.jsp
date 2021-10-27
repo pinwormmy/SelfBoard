@@ -48,14 +48,16 @@
 		</tbody>
 	</table>
 	
-	<select name="searchOption">
-		<option value="제목+내용">제목+내용</option>
-		<option value="제목">제목</option>
-		<option value="내용">내용</option>
-		<option value="작성자">작성자</option>
-	</select>
-	<input type="text" name="search">
-	<input type="submit" value="검색">
+	<form action="/search">
+		<select name="searchOption">
+			<option value="titleandcontent">제목+내용</option>
+			<option value="title">제목</option>
+			<option value="content">내용</option>
+			<option value="writer">작성자</option>
+		</select>
+		<input type="text" name="searchKeyword">
+		<input type="submit" value="검색">
+	</form>
 	
 	<div>
 		<a href="write"><button>글쓰기</button></a>
