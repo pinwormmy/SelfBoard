@@ -14,7 +14,6 @@ public class SBoardServiceImpl implements SBoardService {
 	@Autowired
 	private SBoardDAO sboardDAO;
 
-	// 게시물 목록
 	@Override
 	public List<SBoardVO> list() throws Exception {
 		return sboardDAO.list();
@@ -26,7 +25,6 @@ public class SBoardServiceImpl implements SBoardService {
 		sboardDAO.write(sboardVO);
 	}
 
-	// 게시물 읽기
 	@Override
 	public SBoardVO read(int sno) {
 		return sboardDAO.read(sno);
@@ -44,5 +42,25 @@ public class SBoardServiceImpl implements SBoardService {
 
 	public void postviews(int sno) {
 		sboardDAO.postviews(sno);
+	}
+
+	@Override
+	public List<SBoardVO> searchTitle(String searchKeyword) {
+		return sboardDAO.searchTitle(searchKeyword);
+	}
+
+	@Override
+	public List<SBoardVO> searchContent(String searchKeyword) {
+		return sboardDAO.searchContent(searchKeyword);
+	}
+
+	@Override
+	public List<SBoardVO> searchWriter(String searchKeyword) {
+		return sboardDAO.searchWriter(searchKeyword);
+	}
+	
+	@Override
+	public List<SBoardVO> searchTandC(String searchKeyword) {
+		return sboardDAO.searchTandC(searchKeyword);
 	}
 }

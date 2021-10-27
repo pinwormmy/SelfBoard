@@ -39,5 +39,38 @@
 		update stbl set view_cnt=view_cnt+1 
 			WHERE sno=#{sno}
 	</update>
+	
+	<select id="searchTitle" parameterType="String" 
+	resultType="com.study.sboard.SBoardVO.SBoardVO">
+		select sno, title, writer, writingtime, view_cnt 
+			FROM stbl
+			WHERE title LIKE concat('%',#{searchKeyword},'%') 
+			ORDER by sno desc
+	</select>
+	
+	<select id="searchContent" parameterType="String" 
+	resultType="com.study.sboard.SBoardVO.SBoardVO">
+		select sno, title, writer, writingtime, view_cnt 
+			FROM stbl
+			WHERE content LIKE concat('%',#{searchKeyword},'%') 
+			ORDER by sno desc
+	</select>
+	
+	<select id="searchwriter" parameterType="String" 
+	resultType="com.study.sboard.SBoardVO.SBoardVO">
+		select sno, title, writer, writingtime, view_cnt 
+			FROM stbl
+			WHERE writer LIKE concat('%',#{searchKeyword},'%') 
+			ORDER by sno desc
+	</select>
+	
+	<select id="searchtandc" parameterType="String" 
+	resultType="com.study.sboard.SBoardVO.SBoardVO">
+		select sno, title, writer, writingtime, view_cnt 
+			FROM stbl
+			WHERE title LIKE concat('%',#{searchKeyword},'%') 
+				or content LIKE concat('%',#{searchKeyword},'%')
+			ORDER by sno desc
+	</select>
 
 </mapper>

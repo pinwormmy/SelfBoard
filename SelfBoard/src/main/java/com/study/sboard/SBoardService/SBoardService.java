@@ -20,4 +20,12 @@ public interface SBoardService {
 
 	public void postviews(int sno);
 
+	public List<SBoardVO> searchTitle(String searchKeyword);
+
+	public List<SBoardVO> searchContent(String searchKeyword);
+	
+	public List<SBoardVO> searchWriter(String searchKeyword);
+	
+	public List<SBoardVO> searchTandC(String searchKeyword);
+
 }

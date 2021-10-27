@@ -2,7 +2,6 @@ package com.study.sboard;
 
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -11,11 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.sboard.SBoardService.SBoardService;
 import com.study.sboard.SBoardVO.SBoardVO;
@@ -83,8 +79,8 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/modify")
-	public String modify(int no, Model model) {
-		SBoardVO read = sboardService.read(no);
+	public String modify(int sno, Model model) {
+		SBoardVO read = sboardService.read(sno);
 		model.addAttribute("read", read);
 		
 		return "modify";
@@ -97,5 +93,33 @@ public class HomeController {
 		sboardService.modify(vo);
 		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/search")
+	public String search(String searchOption, String searchKeyword, Model model) {
+		
+		List<SBoardVO> list = null;
+		
+		System.out.println("옵션 받은 값 : " + searchOption);
+		
+		if(searchOption.equals("title"))
+		{
+			System.out.println("검색 카테고리 : " + searchOption);
+			list = sboardService.searchTitle(searchKeyword);
+		}
+		else if(searchOption.equals("content"))
+			list = sboardService.searchContent(searchKeyword);
+		else if(searchOption.equals("writer"))
+			list = sboardService.searchWriter(searchKeyword);
+		else
+		{
+			System.out.println("조건문 발동 안됨, 혹은 제목+내용 선택");
+			list = sboardService.searchTandC(searchKeyword);
+		}
+		
+		
+		model.addAttribute("list", list);
+		
+		return "home";
 	}
 }

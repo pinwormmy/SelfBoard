@@ -45,4 +45,23 @@ public class SBoardDAOImpl implements SBoardDAO {
 		sqlSession.update(Namespace + ".postviews", sno);
 	}
 
+	@Override
+	public List<SBoardVO> searchTitle(String searchKeyword) {
+		return sqlSession.selectList(Namespace + ".searchTitle", searchKeyword);
+	}
+
+	@Override
+	public List<SBoardVO> searchContent(String searchKeyword) {
+		return sqlSession.selectList(Namespace + ".searchcontent", searchKeyword);
+	}
+
+	@Override
+	public List<SBoardVO> searchWriter(String searchKeyword) {
+		return sqlSession.selectList(Namespace + ".searchWriter", searchKeyword);
+	}
+	
+	@Override
+	public List<SBoardVO> searchTandC(String searchKeyword) {
+		return sqlSession.selectList(Namespace + ".searchtandc", searchKeyword);
+	}
 }

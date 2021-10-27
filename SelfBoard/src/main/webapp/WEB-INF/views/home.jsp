@@ -50,7 +50,7 @@
 	
 	<form action="/search">
 		<select name="searchOption">
-			<option value="titleandcontent">제목+내용</option>
+			<option value="tandc">제목+내용</option>
 			<option value="title">제목</option>
 			<option value="content">내용</option>
 			<option value="writer">작성자</option>
