@@ -40,7 +40,7 @@
 			WHERE sno=#{sno}
 	</update>
 	
-	<select id="searchTitle" parameterType="String" 
+	<select id="searchtitle" parameterType="String" 
 	resultType="com.study.sboard.SBoardVO.SBoardVO">
 		select sno, title, writer, writingtime, view_cnt 
 			FROM stbl
@@ -48,7 +48,7 @@
 			ORDER by sno desc
 	</select>
 	
-	<select id="searchContent" parameterType="String" 
+	<select id="searchcontent" parameterType="String" 
 	resultType="com.study.sboard.SBoardVO.SBoardVO">
 		select sno, title, writer, writingtime, view_cnt 
 			FROM stbl

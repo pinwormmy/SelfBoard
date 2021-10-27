@@ -47,7 +47,7 @@ public class SBoardDAOImpl implements SBoardDAO {
 
 	@Override
 	public List<SBoardVO> searchTitle(String searchKeyword) {
-		return sqlSession.selectList(Namespace + ".searchTitle", searchKeyword);
+		return sqlSession.selectList(Namespace + ".searchtitle", searchKeyword);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class SBoardDAOImpl implements SBoardDAO {
 
 	@Override
 	public List<SBoardVO> searchWriter(String searchKeyword) {
-		return sqlSession.selectList(Namespace + ".searchWriter", searchKeyword);
+		return sqlSession.selectList(Namespace + ".searchwriter", searchKeyword);
 	}
 	
 	@Override

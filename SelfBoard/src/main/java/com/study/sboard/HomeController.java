@@ -100,22 +100,14 @@ public class HomeController {
 		
 		List<SBoardVO> list = null;
 		
-		System.out.println("옵션 받은 값 : " + searchOption);
-		
 		if(searchOption.equals("title"))
-		{
-			System.out.println("검색 카테고리 : " + searchOption);
 			list = sboardService.searchTitle(searchKeyword);
-		}
 		else if(searchOption.equals("content"))
 			list = sboardService.searchContent(searchKeyword);
 		else if(searchOption.equals("writer"))
 			list = sboardService.searchWriter(searchKeyword);
 		else
-		{
-			System.out.println("조건문 발동 안됨, 혹은 제목+내용 선택");
 			list = sboardService.searchTandC(searchKeyword);
-		}
 		
 		
 		model.addAttribute("list", list);

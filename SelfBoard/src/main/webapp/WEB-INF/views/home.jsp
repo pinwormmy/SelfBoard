@@ -4,7 +4,7 @@
 
 <html>
 <head>
-	<title>게시판 첫 화면</title>
+	<title>스프링으로 게시판 만들기 공부</title>
 	<style type="text/css">
 		a {color:black;}
 		a {text-decoration:none;}
@@ -15,13 +15,13 @@
 </head>
 <body>
 	<h1>
-		게시판 공부 다시 시작
+		<a href="/">스프링으로 게시판 공부</a>
 	</h1>
 	
-	<P>  현재시각은 ${serverTime}입니다. </P>
+	<P>  현재시각은 ${serverTime}이라는데 재밌어서 놔둠. </P>
 	<P> 
 		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현하고자함 <br />
-		메인 페이지부터 바로 게시판 띄운다
+
 	</P>
 	
 	<table>
@@ -57,6 +57,7 @@
 		</select>
 		<input type="text" name="searchKeyword">
 		<input type="submit" value="검색">
+		<input type="button" onclick="location.href='/'" value="목록"/>
 	</form>
 	
 	<div>
