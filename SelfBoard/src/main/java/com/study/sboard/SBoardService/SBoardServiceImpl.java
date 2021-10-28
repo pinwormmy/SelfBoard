@@ -14,12 +14,12 @@ public class SBoardServiceImpl implements SBoardService {
 	@Autowired
 	private SBoardDAO sboardDAO;
 
+	// 게시판 기본목록
 	@Override
 	public List<SBoardVO> list() throws Exception {
 		return sboardDAO.list();
 	}
 
-	// 게시물 작성
 	@Override
 	public void write(SBoardVO sboardVO) {
 		sboardDAO.write(sboardVO);
@@ -44,21 +44,19 @@ public class SBoardServiceImpl implements SBoardService {
 		sboardDAO.postviews(sno);
 	}
 
+	// 검색 옵션에 따른 4가지 조회방법
 	@Override
 	public List<SBoardVO> searchTitle(String searchKeyword) {
 		return sboardDAO.searchTitle(searchKeyword);
 	}
-
 	@Override
 	public List<SBoardVO> searchContent(String searchKeyword) {
 		return sboardDAO.searchContent(searchKeyword);
 	}
-
 	@Override
 	public List<SBoardVO> searchWriter(String searchKeyword) {
 		return sboardDAO.searchWriter(searchKeyword);
 	}
-	
 	@Override
 	public List<SBoardVO> searchTandC(String searchKeyword) {
 		return sboardDAO.searchTandC(searchKeyword);

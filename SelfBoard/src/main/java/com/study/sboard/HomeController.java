@@ -99,14 +99,14 @@ public class HomeController {
 	public String search(String searchOption, String searchKeyword, Model model) {
 		
 		List<SBoardVO> list = null;
-		
+		// 검색 옵션에 따른 조건문
 		if(searchOption.equals("title"))
 			list = sboardService.searchTitle(searchKeyword);
 		else if(searchOption.equals("content"))
 			list = sboardService.searchContent(searchKeyword);
 		else if(searchOption.equals("writer"))
 			list = sboardService.searchWriter(searchKeyword);
-		else
+		else // 제목+내용
 			list = sboardService.searchTandC(searchKeyword);
 		
 		

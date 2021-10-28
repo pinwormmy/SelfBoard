@@ -3,6 +3,7 @@
 
 <mapper namespace="com.study.mappers.SBoardMapper">
 
+	<!-- 게시판 기본목록 -->
 	<select id="list" parameterType="com.study.sboard.SBoardVO.SBoardVO" 
 	resultType="com.study.sboard.SBoardVO.SBoardVO">
 		select sno, title, writer, writingtime, view_cnt 
@@ -40,6 +41,7 @@
 			WHERE sno=#{sno}
 	</update>
 	
+	<!-- 검색 옵션에 따른 4가지 조회방법 -->
 	<select id="searchtitle" parameterType="String" 
 	resultType="com.study.sboard.SBoardVO.SBoardVO">
 		select sno, title, writer, writingtime, view_cnt 
@@ -72,5 +74,6 @@
 				or content LIKE concat('%',#{searchKeyword},'%')
 			ORDER by sno desc
 	</select>
+	<!-- 여기까지 검색 옵션에 따른 4가지 조회방법 -->
 
 </mapper>
