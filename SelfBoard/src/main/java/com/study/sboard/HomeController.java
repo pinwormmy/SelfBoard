@@ -39,9 +39,15 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
+		
+		
 		// 게시판 글목록
 		List<SBoardVO> list = sboardService.list();
 		model.addAttribute("list", list);
+		
+		int TotalnumPost = list.size();
+		
+		System.out.println(TotalnumPost);
 			
 		return "home";
 	}
