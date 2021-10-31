@@ -46,10 +46,11 @@ public class HomeController {
 		model.addAttribute("list", list);
 		
 		int TotalnumPost = list.size();
-		int pageLimit = 30; // 한 페이지에 표시되는 게시물 수
+		int pageLimit = 24; // 한 페이지에 표시되는 게시물 수
+		int pageNum = 1;
+		int postStartNum = 5;
+		int postEndNum = pageLimit * pageNum;
 		
-		System.out.println(TotalnumPost);
-			
 		return "home";
 	}
 	
