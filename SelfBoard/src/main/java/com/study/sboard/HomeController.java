@@ -50,7 +50,7 @@ public class HomeController {
 		int pageNum = 1;
 		int postStartNum = 1;
 		int postEndNum = pageLimit * pageNum;
-		List<int> page = 페이지배열[TotalnumPost / diplayLimit];
+		List<int> page = 페이지배열[TotalnumPost / diplayLimit]; // 페이지 표기할 변수는 어떻게 구성?
 		
 		// 멍하니 되지도 않을 생각하고 있지말고 아무 주석이라도 쓰면서 정리해가며 작성
 		// 어차피 쓰고 지우기 편한게 컴퓨터 환경 아니니
