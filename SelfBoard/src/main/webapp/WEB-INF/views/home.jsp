@@ -4,7 +4,7 @@
 
 <html>
 <head>
-	<title>스프링으로 게시판 만들기 공부</title>
+	<title>ㅁㅁㅁ요충이 게시판ㅁㅁㅁ</title>
 	<style type="text/css">
 		a {color:black;}
 		a {text-decoration:none;}
@@ -18,9 +18,8 @@
 		<a href="/">스프링 공부 - 게시판 만들기</a>
 	</h1>
 	
-	<P>  현재시각은 ${serverTime}이라는데 재밌어서 놔둠. </P>
 	<P> 
-		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현하고자함 <br />
+		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현해봅시다~~ <br />
 	</P>
 	
 	<table>
@@ -34,7 +33,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list}" var="list" begin="0" end="23">
+			<c:forEach items="${list}" var="list" begin="${postStartNum}" end="${postEndNum}">
 				<tr>
 					<td>${list.sno}  </td>
 					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>
@@ -63,8 +62,8 @@
 		<a href="write"><button>글쓰기</button></a>
 	</div>
 	
-	<c:forEach items="${page}" var="page">
-		<a href="page?pno=${page.pno}">${page.pno}</a>
+	<c:forEach var="i" begin="1" end="${MaxPageNum}">
+		<a href="page?pageNum=${i}">${i}</a>
 	</c:forEach>			
 	
 	

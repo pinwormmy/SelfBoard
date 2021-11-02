@@ -25,35 +25,30 @@ public class HomeController {
 	@Autowired
 	private SBoardService sboardService;
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) throws Exception{
-		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		
-		
-		// 게시판 글목록
+	public String home(Model model) throws Exception{
+				
 		List<SBoardVO> list = sboardService.list();
 		model.addAttribute("list", list);
 		
 		int TotalnumPost = list.size();
 		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
+		
 		int pageNum = 1;
-		int postStartNum = 1;
-		int postEndNum = pageLimit * pageNum;
-		List<int> page = 페이지배열[TotalnumPost / diplayLimit]; // 페이지 표기할 변수는 어떻게 구성?
+		int postEndNum = displayLimit * pageNum - 1; 
+		int postStartNum = postEndNum - (displayLimit - 1);
+		
+		model.addAttribute("postStartNum", postStartNum);
+		model.addAttribute("postEndNum", postEndNum);
+		
+		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
+		
+		model.addAttribute("MaxPageNum", MaxPageNum);
+		
 		
 		// 멍하니 되지도 않을 생각하고 있지말고 아무 주석이라도 쓰면서 정리해가며 작성
 		// 어차피 쓰고 지우기 편한게 컴퓨터 환경 아니니
+		
 		
 		return "home";
 	}
@@ -121,8 +116,43 @@ public class HomeController {
 		else // 제목+내용
 			list = sboardService.searchTandC(searchKeyword);
 		
-		
 		model.addAttribute("list", list);
+		
+		int TotalnumPost = list.size();
+		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
+		
+		int pageNum = 1;
+		int postEndNum = displayLimit * pageNum - 1; 
+		int postStartNum = postEndNum - (displayLimit - 1);
+		
+		model.addAttribute("postStartNum", postStartNum);
+		model.addAttribute("postEndNum", postEndNum);
+		
+		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
+		
+		model.addAttribute("MaxPageNum", MaxPageNum);
+		
+		return "home";
+	}
+	
+	@RequestMapping(value="/page")
+	public String page(int pageNum, Model model) throws Exception {
+		
+		List<SBoardVO> list = sboardService.list();
+		model.addAttribute("list", list);
+		
+		int TotalnumPost = list.size();
+		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
+		
+		int postEndNum = displayLimit * pageNum - 1; 
+		int postStartNum = postEndNum - (displayLimit - 1);
+		
+		model.addAttribute("postStartNum", postStartNum);
+		model.addAttribute("postEndNum", postEndNum);
+		
+		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
+		
+		model.addAttribute("MaxPageNum", MaxPageNum);
 		
 		return "home";
 	}
