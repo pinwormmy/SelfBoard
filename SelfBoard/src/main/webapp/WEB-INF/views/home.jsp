@@ -34,7 +34,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list}" var="list" begin="1" end="24">
+			<c:forEach items="${list}" var="list" begin="0" end="23">
 				<tr>
 					<td>${list.sno}  </td>
 					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>

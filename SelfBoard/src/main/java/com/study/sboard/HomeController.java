@@ -46,10 +46,14 @@ public class HomeController {
 		model.addAttribute("list", list);
 		
 		int TotalnumPost = list.size();
-		int pageLimit = 24; // 한 페이지에 표시되는 게시물 수
+		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
 		int pageNum = 1;
-		int postStartNum = 5;
+		int postStartNum = 1;
 		int postEndNum = pageLimit * pageNum;
+		List<int> page = 페이지배열[TotalnumPost / diplayLimit];
+		
+		// 멍하니 되지도 않을 생각하고 있지말고 아무 주석이라도 쓰면서 정리해가며 작성
+		// 어차피 쓰고 지우기 편한게 컴퓨터 환경 아니니
 		
 		return "home";
 	}
