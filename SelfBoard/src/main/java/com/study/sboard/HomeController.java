@@ -132,7 +132,7 @@ public class HomeController {
 		
 		model.addAttribute("MaxPageNum", MaxPageNum);
 		
-		return "home";
+		return "home"; // search 파일 따로 만들어야 하나
 	}
 	
 	@RequestMapping(value="/page")
