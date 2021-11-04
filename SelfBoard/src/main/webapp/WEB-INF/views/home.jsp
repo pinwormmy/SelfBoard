@@ -62,8 +62,14 @@
 		<a href="write"><button>글쓰기</button></a>
 	</div>
 	
+	<script>
+		function nowpage(){
+			window.location.href;
+		}
+	</script>
+	
 	<c:forEach var="i" begin="1" end="${MaxPageNum}">
-		<a href="page?pageNum=${i}">${i}</a>
+		<a href="/page?pageNum=${i}">${i}</a>
 	</c:forEach>			
 	
 	
