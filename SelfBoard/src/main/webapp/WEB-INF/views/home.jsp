@@ -68,8 +68,9 @@
 		}
 	</script>
 	
+	
 	<c:forEach var="i" begin="1" end="${MaxPageNum}">
-		<a href="/page?pageNum=${i}">${i}</a>
+		<a href="nowpage()+/page?pageNum=${i}">${i}</a>
 	</c:forEach>			
 	
 	
