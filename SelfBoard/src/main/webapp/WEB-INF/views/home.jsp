@@ -64,13 +64,13 @@
 	
 	<script>
 		function nowpage(){
-			window.location.href;
+			window.location.href + "/page?pageNum=${i}";
 		}
 	</script>
 	
 	
 	<c:forEach var="i" begin="1" end="${MaxPageNum}">
-		<a href="nowpage()+/page?pageNum=${i}">${i}</a>
+		<a href="javascript:void(0);" onclick="nowpage(); return false;">${i}</a>
 	</c:forEach>			
 	
 	
