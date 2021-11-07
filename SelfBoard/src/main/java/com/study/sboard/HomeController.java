@@ -156,5 +156,37 @@ public class HomeController {
 		
 		return "home";
 	}
+	
+	@RequestMapping(value="/search/page")
+	public String search(String searchOption, String searchKeyword, int pageNum, Model model) {
+		
+		List<SBoardVO> list = null;
+		// 검색 옵션에 따른 조건문
+		if(searchOption.equals("title"))
+			list = sboardService.searchTitle(searchKeyword);
+		else if(searchOption.equals("content"))
+			list = sboardService.searchContent(searchKeyword);
+		else if(searchOption.equals("writer"))
+			list = sboardService.searchWriter(searchKeyword);
+		else // 제목+내용
+			list = sboardService.searchTandC(searchKeyword);
+		
+		model.addAttribute("list", list);
+		
+		int TotalnumPost = list.size();
+		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
+		
+		int postEndNum = displayLimit * pageNum - 1; 
+		int postStartNum = postEndNum - (displayLimit - 1);
+		
+		model.addAttribute("postStartNum", postStartNum);
+		model.addAttribute("postEndNum", postEndNum);
+		
+		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
+		
+		model.addAttribute("MaxPageNum", MaxPageNum);
+		
+		return "home"; // search 파일 따로 만들어야 하나
+	}
 
 }
