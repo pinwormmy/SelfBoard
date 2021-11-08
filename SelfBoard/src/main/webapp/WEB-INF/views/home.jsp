@@ -54,6 +54,7 @@
 			<option value="writer">작성자</option>
 		</select>
 		<input type="text" name="searchKeyword">
+		<input type="hidden" name="pageNum" value=1>
 		<input type="submit" value="검색">
 		<input type="button" onclick="location.href='/'" value="목록"/>
 	</form>
@@ -61,17 +62,9 @@
 	<div>
 		<a href="write"><button>글쓰기</button></a>
 	</div>
-	
-	<script>
-		function nowpage(){
-			window.location.href;
-		}
-	</script>
-	
-	<!--  = window.location.href + "/page?pageNum=${i}" -->
-	
+		
 	<c:forEach var="i" begin="1" end="${MaxPageNum}">
-		<a href="/page?pageNum=${i}">${i}</a>
+		<a href="/search?searchOption=${searchOption}&searchKeyword=${searchKeyword}&pageNum=${i}">${i}</a>
 	</c:forEach>			
 	
 	
