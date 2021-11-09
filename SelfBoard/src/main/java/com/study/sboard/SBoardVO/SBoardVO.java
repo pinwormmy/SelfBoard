@@ -11,6 +11,7 @@ public class SBoardVO {
 	private Timestamp writingtime; 
 	private int view_cnt;
 	
+	
 	public int getSno() {
 		return sno;
 	}
@@ -48,7 +49,5 @@ public class SBoardVO {
 	public void setWritingtime(Timestamp writingtime) {
 		this.writingtime = writingtime;
 	}
-	
-	
-	
 }
+	

@@ -48,15 +48,21 @@
 	
 	<form action="/search">
 		<select name="searchOption">
-			<option value="tandc">제목+내용</option>
-			<option value="title">제목</option>
-			<option value="content">내용</option>
-			<option value="writer">작성자</option>
+			<option value="tandc" 
+			<c:if test="${(searchOption) == 'tandc'}">selected</c:if>>제목+내용</option>
+			<option value="title" 
+			<c:if test="${(searchOption) == 'title'}">selected</c:if> >제목</option>
+			<option value="content" 
+			<c:if test="${(searchOption) == 'content'}">selected</c:if> >내용</option>
+			<option value="writer" 
+			<c:if test="${(searchOption) == 'writer'}">selected</c:if> >작성자</option>
 		</select>
-		<input type="text" name="searchKeyword">
+		<input type="text" name="searchKeyword" value="${searchKeyword}">
 		<input type="hidden" name="pageNum" value=1>
 		<input type="submit" value="검색">
 		<input type="button" onclick="location.href='/'" value="목록"/>
+		
+		
 	</form>
 	
 	<div>
@@ -64,7 +70,19 @@
 	</div>
 		
 	<c:forEach var="i" begin="1" end="${MaxPageNum}">
-		<a href="/search?searchOption=${searchOption}&searchKeyword=${searchKeyword}&pageNum=${i}">${i}</a>
+	
+		<c:choose>
+			<c:when test="${pageNum == i}">
+				<b>${i}</b>
+			</c:when>
+			<c:otherwise>
+				<a href="/search?searchOption=${searchOption}
+				&searchKeyword=${searchKeyword}&pageNum=${i}">${i}</a>
+			</c:otherwise>
+		</c:choose>
+	
+	
+		
 	</c:forEach>			
 	
 	

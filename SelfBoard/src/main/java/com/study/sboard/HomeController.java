@@ -1,12 +1,7 @@
 package com.study.sboard;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +27,7 @@ public class HomeController {
 		List<SBoardVO> list = sboardService.list();
 		model.addAttribute("list", list);
 		
+		
 		int pageNum = 1; 
 		int TotalnumPost = list.size();
 		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
@@ -46,6 +42,7 @@ public class HomeController {
 		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
 		
 		model.addAttribute("MaxPageNum", MaxPageNum);
+		model.addAttribute("pageNum", pageNum);
 		
 		
 		// 멍하니 되지도 않을 생각하고 있지말고 아무 주석이라도 쓰면서 정리해가며 작성
@@ -132,33 +129,10 @@ public class HomeController {
 		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
 		
 		model.addAttribute("MaxPageNum", MaxPageNum);
-		
-		return "home"; // search 파일 따로 만들어야 하나
-	}
-	/*
-	
-	@RequestMapping(value="/page")
-	public String page(int pageNum, Model model) throws Exception {
-		
-		List<SBoardVO> list = sboardService.list();
-		model.addAttribute("list", list);
-		
-		int TotalnumPost = list.size();
-		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
-		
-		int postEndNum = displayLimit * pageNum - 1; 
-		int postStartNum = postEndNum - (displayLimit - 1);
-		
-		model.addAttribute("postStartNum", postStartNum);
-		model.addAttribute("postEndNum", postEndNum);
-		
-		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
-		
-		model.addAttribute("MaxPageNum", MaxPageNum);
+		model.addAttribute("searchOption", searchOption);
+		model.addAttribute("searchKeyword", searchKeyword);
+		model.addAttribute("pageNum", pageNum);
 		
 		return "home";
 	}
-	*/
-
-
 }
