@@ -69,8 +69,12 @@
 		<a href="write"><button>글쓰기</button></a>
 	</div>
 		
-	<c:forEach var="i" begin="1" end="${MaxPageNum}">
+	<c:if test="${pageStartNum > pageLimit}">
+			<a href="/search?searchOption=${searchOption}
+				&searchKeyword=${searchKeyword}&pageNum=${pageStartNum - 1}">◀</a>
+	</c:if> 
 	
+	<c:forEach var="i" begin="${pageStartNum}" end="${pageEndNum}">
 		<c:choose>
 			<c:when test="${pageNum == i}">
 				<b>${i}</b>
@@ -80,11 +84,12 @@
 				&searchKeyword=${searchKeyword}&pageNum=${i}">${i}</a>
 			</c:otherwise>
 		</c:choose>
+	</c:forEach>
 	
-	
-		
-	</c:forEach>			
-	
+	<c:if test="${pageEndNum < MaxPageNum}">
+			<a href="/search?searchOption=${searchOption}
+				&searchKeyword=${searchKeyword}&pageNum=${pageEndNum + 1}">▶</a>
+	</c:if> 			
 	
 </body>
 </html>

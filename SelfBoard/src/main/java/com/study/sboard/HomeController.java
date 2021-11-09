@@ -22,32 +22,35 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) throws Exception{
-						
 		
 		List<SBoardVO> list = sboardService.list();
 		model.addAttribute("list", list);
 		
-		
 		int pageNum = 1; 
-		int TotalnumPost = list.size();
 		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
-		
-		
 		int postEndNum = displayLimit * pageNum - 1; 
 		int postStartNum = postEndNum - (displayLimit - 1);
 		
 		model.addAttribute("postStartNum", postStartNum);
 		model.addAttribute("postEndNum", postEndNum);
-		
-		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
-		
-		model.addAttribute("MaxPageNum", MaxPageNum);
 		model.addAttribute("pageNum", pageNum);
 		
 		
 		// 멍하니 되지도 않을 생각하고 있지말고 아무 주석이라도 쓰면서 정리해가며 작성
 		// 어차피 쓰고 지우기 편한게 컴퓨터 환경 아니니
 		
+		int TotalnumPost = list.size();
+		int pageLimit = 10;
+		int pageStartNum = 1; // default	
+		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
+		int pageEndNum = pageStartNum + (pageLimit - 1);
+		if(pageEndNum > MaxPageNum)
+			pageEndNum = MaxPageNum; // 마지막 페이지묶음 세팅
+		
+		model.addAttribute("pageStartNum", pageStartNum);
+		model.addAttribute("pageEndNum", pageEndNum);
+		model.addAttribute("pageLimit", pageLimit);
+		model.addAttribute("MaxPageNum", MaxPageNum);
 		
 		return "home";
 	}
@@ -128,10 +131,21 @@ public class HomeController {
 		
 		int MaxPageNum = (int)Math.ceil((double)TotalnumPost / displayLimit);
 		
-		model.addAttribute("MaxPageNum", MaxPageNum);
 		model.addAttribute("searchOption", searchOption);
 		model.addAttribute("searchKeyword", searchKeyword);
 		model.addAttribute("pageNum", pageNum);
+		
+		int pageLimit = 10;
+		// 묶음 첫페이지 구하는 공식. 나눗셈은 내림효과가 포함되어 괜히 복잡해보임
+		int pageStartNum = (pageNum-1) / pageLimit * pageLimit + 1; 
+		int pageEndNum = pageStartNum + (pageLimit - 1);
+		if(pageEndNum > MaxPageNum)
+			pageEndNum = MaxPageNum; // 마지막 페이지묶음 세팅
+		
+		model.addAttribute("pageStartNum", pageStartNum);
+		model.addAttribute("pageEndNum", pageEndNum);
+		model.addAttribute("pageLimit", pageLimit);
+		model.addAttribute("MaxPageNum", MaxPageNum);
 		
 		return "home";
 	}
