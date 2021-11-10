@@ -149,4 +149,15 @@ public class HomeController {
 		
 		return "home";
 	}
+	
+	@RequestMapping(value="/pwcheck")
+	public String pwcheck(String cmdType) {
+		// 리턴문은 패스워드 성공시에 들어갈것들임. 옮겨서 적기
+		if(cmdType.equals("modify"))
+			return "modify";
+		else if(cmdType.equals("delete"))
+			return "delete";
+		else
+			return "redirect:/";
+	}
 }
