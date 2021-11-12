@@ -151,10 +151,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/pwcheck")
-	public String pwcheck() {
-		// 리턴문은 패스워드 성공시에 들어갈것들임. 옮겨서 적기
-			System.out.println(a);
+	public String pwcheck(int sno, Model model) {
+		SBoardVO read = sboardService.read(sno);
+		model.addAttribute("read", read);
 		
-			return "pwceck";
+		return "pwcheck";
 	}
 }

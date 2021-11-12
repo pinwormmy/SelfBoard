@@ -18,7 +18,7 @@
 	
 	<select id="read" parameterType="int" 
 	resultType="com.study.sboard.SBoardVO.SBoardVO">
-		select sno, title, writer, content, writingtime, view_cnt 
+		select sno, title, writer, content, writingtime, view_cnt, postpassword
 			FROM stbl
 			WHERE sno=#{sno}
 	</select>

@@ -10,6 +10,7 @@ public class SBoardVO {
 	private String content;
 	private Timestamp writingtime; 
 	private int view_cnt;
+	private String postpassword;
 	
 	
 	public int getSno() {
@@ -49,5 +50,13 @@ public class SBoardVO {
 	public void setWritingtime(Timestamp writingtime) {
 		this.writingtime = writingtime;
 	}
+	public String getPostpassword() {
+		return postpassword;
+	}
+	public void setPostpassword(String postpassword) {
+		this.postpassword = postpassword;
+	}
+	
+	
 }
 	
