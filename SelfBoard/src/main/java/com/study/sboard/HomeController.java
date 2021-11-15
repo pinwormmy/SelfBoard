@@ -157,4 +157,9 @@ public class HomeController {
 		
 		return "pwcheck";
 	}
+	
+	@RequestMapping(value="signup")
+	public String signup() {
+		return "signup";
+	}
 }

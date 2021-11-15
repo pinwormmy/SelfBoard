@@ -12,8 +12,8 @@
 	</select>
 	
 	<insert id="write" parameterType="com.study.sboard.SBoardVO.SBoardVO">
-		insert into stbl(title, writer, content)
-			values(#{title}, #{writer}, #{content})
+		insert into stbl(title, writer, postpassword, content)
+			values(#{title}, #{writer}, #{postpassword}, #{content})
 	</insert>
 	
 	<select id="read" parameterType="int" 
@@ -31,6 +31,7 @@
 		update stbl
 			SET title=#{title},
 				writer=#{writer},
+				postpassword=#{postpassword},
 				writingtime=NOW(),
 				content=#{content}
 			WHERE sno=#{sno}
