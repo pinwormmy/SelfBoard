@@ -1,4 +1,4 @@
-package com.study.sboard.SBoardVO;
+package com.study.sboard.SBoardDTO;
 
 import java.sql.Timestamp;
 

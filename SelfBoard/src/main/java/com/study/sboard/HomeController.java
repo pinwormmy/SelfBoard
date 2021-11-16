@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.study.sboard.SBoardDTO.SBoardVO;
 import com.study.sboard.SBoardService.SBoardService;
-import com.study.sboard.SBoardVO.SBoardVO;
 
 /**
  * Handles requests for the application home page.

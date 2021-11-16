@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.study.sboard.SBoardVO.SBoardVO;
+import com.study.sboard.SBoardDTO.SBoardVO;
 
 @Repository
 public class SBoardDAOImpl implements SBoardDAO {

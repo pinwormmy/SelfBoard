@@ -2,7 +2,7 @@ package com.study.sboard.SBoardDAO;
 
 import java.util.List;
 
-import com.study.sboard.SBoardVO.SBoardVO;
+import com.study.sboard.SBoardDTO.SBoardVO;
 
 public interface SBoardDAO {
 	

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.sboard.SBoardDAO.SBoardDAO;
-import com.study.sboard.SBoardVO.SBoardVO;
+import com.study.sboard.SBoardDTO.SBoardVO;
 
 @Service
 public class SBoardServiceImpl implements SBoardService {
