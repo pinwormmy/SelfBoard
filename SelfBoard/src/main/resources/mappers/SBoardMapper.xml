@@ -4,20 +4,20 @@
 <mapper namespace="com.study.mappers.SBoardMapper">
 
 	<!-- 게시판 기본목록 -->
-	<select id="list" parameterType="com.study.sboard.SBoardVO.SBoardVO" 
-	resultType="com.study.sboard.SBoardVO.SBoardVO">
+	<select id="list" parameterType="com.study.sboard.SBoardDTO.SBoardDTO" 
+	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
 		select sno, title, writer, writingtime, view_cnt 
 			FROM stbl
 			ORDER by sno desc
 	</select>
 	
-	<insert id="write" parameterType="com.study.sboard.SBoardVO.SBoardVO">
+	<insert id="write" parameterType="com.study.sboard.SBoardDTO.SBoardDTO">
 		insert into stbl(title, writer, postpassword, content)
 			values(#{title}, #{writer}, #{postpassword}, #{content})
 	</insert>
 	
 	<select id="read" parameterType="int" 
-	resultType="com.study.sboard.SBoardVO.SBoardVO">
+	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
 		select sno, title, writer, content, writingtime, view_cnt, postpassword
 			FROM stbl
 			WHERE sno=#{sno}
@@ -27,7 +27,7 @@
 		delete from stbl where sno=#{sno}
 	</delete>
 	
-	<update id="modify" parameterType="com.study.sboard.SBoardVO.SBoardVO">
+	<update id="modify" parameterType="com.study.sboard.SBoardDTO.SBoardDTO">
 		update stbl
 			SET title=#{title},
 				writer=#{writer},
@@ -44,7 +44,7 @@
 	
 	<!-- 검색 옵션에 따른 4가지 조회방법 -->
 	<select id="searchtitle" parameterType="String" 
-	resultType="com.study.sboard.SBoardVO.SBoardVO">
+	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
 		select sno, title, writer, writingtime, view_cnt 
 			FROM stbl
 			WHERE title LIKE concat('%',#{searchKeyword},'%') 
@@ -52,7 +52,7 @@
 	</select>
 	
 	<select id="searchcontent" parameterType="String" 
-	resultType="com.study.sboard.SBoardVO.SBoardVO">
+	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
 		select sno, title, writer, writingtime, view_cnt 
 			FROM stbl
 			WHERE content LIKE concat('%',#{searchKeyword},'%') 
@@ -60,7 +60,7 @@
 	</select>
 	
 	<select id="searchwriter" parameterType="String" 
-	resultType="com.study.sboard.SBoardVO.SBoardVO">
+	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
 		select sno, title, writer, writingtime, view_cnt 
 			FROM stbl
 			WHERE writer LIKE concat('%',#{searchKeyword},'%') 
@@ -68,7 +68,7 @@
 	</select>
 	
 	<select id="searchtandc" parameterType="String" 
-	resultType="com.study.sboard.SBoardVO.SBoardVO">
+	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
 		select sno, title, writer, writingtime, view_cnt 
 			FROM stbl
 			WHERE title LIKE concat('%',#{searchKeyword},'%') 

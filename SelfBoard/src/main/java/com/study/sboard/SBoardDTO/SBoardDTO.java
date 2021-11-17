@@ -2,7 +2,7 @@ package com.study.sboard.SBoardDTO;
 
 import java.sql.Timestamp;
 
-public class SBoardVO {
+public class SBoardDTO {
 	
 	private int sno;
 	private String writer;

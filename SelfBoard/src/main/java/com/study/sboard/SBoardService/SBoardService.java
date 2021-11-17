@@ -2,26 +2,26 @@ package com.study.sboard.SBoardService;
 
 import java.util.List;
 
-import com.study.sboard.SBoardDTO.SBoardVO;
+import com.study.sboard.SBoardDTO.SBoardDTO;
 
 public interface SBoardService {
 	
 	// 게시글 기본목록
-	public List<SBoardVO> list() throws Exception;
+	public List<SBoardDTO> list() throws Exception;
 
-	public void write(SBoardVO sboardVO);
+	public void write(SBoardDTO sboardDTO);
 
-	public SBoardVO read(int sno);
+	public SBoardDTO read(int sno);
 
 	public void delete(int sno);
 
-	public void modify(SBoardVO vo);
+	public void modify(SBoardDTO dto);
 
 	public void postviews(int sno);
 
-	public List<SBoardVO> searchTitle(String searchKeyword);
-	public List<SBoardVO> searchContent(String searchKeyword);
-	public List<SBoardVO> searchWriter(String searchKeyword);
-	public List<SBoardVO> searchTandC(String searchKeyword);
+	public List<SBoardDTO> searchTitle(String searchKeyword);
+	public List<SBoardDTO> searchContent(String searchKeyword);
+	public List<SBoardDTO> searchWriter(String searchKeyword);
+	public List<SBoardDTO> searchTandC(String searchKeyword);
 
 }

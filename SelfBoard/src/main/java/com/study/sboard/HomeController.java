@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.study.sboard.SBoardDTO.SBoardVO;
+import com.study.sboard.SBoardDTO.SBoardDTO;
 import com.study.sboard.SBoardService.SBoardService;
 
 /**
@@ -23,7 +23,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) throws Exception{
 		
-		List<SBoardVO> list = sboardService.list();
+		List<SBoardDTO> list = sboardService.list();
 		model.addAttribute("list", list);
 		
 		int pageNum = 1; 
@@ -63,9 +63,9 @@ public class HomeController {
 	
 	// 글 작성 완료 누르면 글 게시하고 다시 글목록 으로 복귀
 	@RequestMapping(value="/writesubmit")
-	public String writesubmit(SBoardVO vo) {
+	public String writesubmit(SBoardDTO sboardDTO) {
 	
-		sboardService.write(vo);
+		sboardService.write(sboardDTO);
 		
 		return "redirect:/";
 	}
@@ -73,7 +73,7 @@ public class HomeController {
 	@RequestMapping(value="/Bpost", method = RequestMethod.GET)
 	public String bpost(int sno, Model model) throws Exception {
 		
-		SBoardVO read = sboardService.read(sno);
+		SBoardDTO read = sboardService.read(sno);
 		model.addAttribute("read", read);
 		
 		sboardService.postviews(sno);
@@ -89,7 +89,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/modify")
 	public String modify(int sno, Model model) {
-		SBoardVO read = sboardService.read(sno);
+		SBoardDTO read = sboardService.read(sno);
 		model.addAttribute("read", read);
 		
 		return "modify";
@@ -97,9 +97,9 @@ public class HomeController {
 	
 	
 	@RequestMapping(value="/modifysubmit")
-	public String modifysubmit(SBoardVO vo) {
+	public String modifysubmit(SBoardDTO sboardDTO) {
 	
-		sboardService.modify(vo);
+		sboardService.modify(sboardDTO);
 		
 		return "redirect:/";
 	}
@@ -107,7 +107,7 @@ public class HomeController {
 	@RequestMapping(value="/search")
 	public String search(String searchOption, String searchKeyword, int pageNum, Model model) {
 		
-		List<SBoardVO> list = null;
+		List<SBoardDTO> list = null;
 		// 검색 옵션에 따른 조건문
 		if(searchOption.equals("title"))
 			list = sboardService.searchTitle(searchKeyword);
@@ -152,7 +152,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/pwcheck")
 	public String pwcheck(int sno, Model model) {
-		SBoardVO read = sboardService.read(sno);
+		SBoardDTO read = sboardService.read(sno);
 		model.addAttribute("read", read);
 		
 		return "pwcheck";

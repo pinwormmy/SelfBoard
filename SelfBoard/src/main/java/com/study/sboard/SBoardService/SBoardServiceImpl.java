@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.sboard.SBoardDAO.SBoardDAO;
-import com.study.sboard.SBoardDTO.SBoardVO;
+import com.study.sboard.SBoardDTO.SBoardDTO;
 
 @Service
 public class SBoardServiceImpl implements SBoardService {
@@ -16,17 +16,17 @@ public class SBoardServiceImpl implements SBoardService {
 
 	// 게시판 기본목록
 	@Override
-	public List<SBoardVO> list() throws Exception {
+	public List<SBoardDTO> list() throws Exception {
 		return sboardDAO.list();
 	}
 
 	@Override
-	public void write(SBoardVO sboardVO) {
-		sboardDAO.write(sboardVO);
+	public void write(SBoardDTO sboardDTO) {
+		sboardDAO.write(sboardDTO);
 	}
 
 	@Override
-	public SBoardVO read(int sno) {
+	public SBoardDTO read(int sno) {
 		return sboardDAO.read(sno);
 	}
 
@@ -36,8 +36,8 @@ public class SBoardServiceImpl implements SBoardService {
 	}
 
 	@Override
-	public void modify(SBoardVO vo) {
-		sboardDAO.modify(vo);
+	public void modify(SBoardDTO sboardDTO) {
+		sboardDAO.modify(sboardDTO);
 	}
 
 	public void postviews(int sno) {
@@ -46,19 +46,19 @@ public class SBoardServiceImpl implements SBoardService {
 
 	// 검색 옵션에 따른 4가지 조회방법
 	@Override
-	public List<SBoardVO> searchTitle(String searchKeyword) {
+	public List<SBoardDTO> searchTitle(String searchKeyword) {
 		return sboardDAO.searchTitle(searchKeyword);
 	}
 	@Override
-	public List<SBoardVO> searchContent(String searchKeyword) {
+	public List<SBoardDTO> searchContent(String searchKeyword) {
 		return sboardDAO.searchContent(searchKeyword);
 	}
 	@Override
-	public List<SBoardVO> searchWriter(String searchKeyword) {
+	public List<SBoardDTO> searchWriter(String searchKeyword) {
 		return sboardDAO.searchWriter(searchKeyword);
 	}
 	@Override
-	public List<SBoardVO> searchTandC(String searchKeyword) {
+	public List<SBoardDTO> searchTandC(String searchKeyword) {
 		return sboardDAO.searchTandC(searchKeyword);
 	}
 }

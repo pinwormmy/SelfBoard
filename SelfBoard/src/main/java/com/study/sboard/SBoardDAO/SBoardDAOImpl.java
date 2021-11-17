@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.study.sboard.SBoardDTO.SBoardVO;
+import com.study.sboard.SBoardDTO.SBoardDTO;
 
 @Repository
 public class SBoardDAOImpl implements SBoardDAO {
@@ -16,17 +16,17 @@ public class SBoardDAOImpl implements SBoardDAO {
 	private String Namespace = "com.study.mappers.SBoardMapper";
 
 	@Override
-	public List<SBoardVO> list() throws Exception {
+	public List<SBoardDTO> list() throws Exception {
 		return sqlSession.selectList(Namespace + ".list");
 	}
 
 	@Override
-	public void write(SBoardVO sboardVO) {
-		sqlSession.insert(Namespace + ".write", sboardVO);
+	public void write(SBoardDTO sboardDTO) {
+		sqlSession.insert(Namespace + ".write", sboardDTO);
 	}
 
 	@Override
-	public SBoardVO read(int sno) {
+	public SBoardDTO read(int sno) {
 		return sqlSession.selectOne(Namespace + ".read", sno);
 	}
 
@@ -36,8 +36,8 @@ public class SBoardDAOImpl implements SBoardDAO {
 	}
 
 	@Override
-	public void modify(SBoardVO vo) {
-		sqlSession.update(Namespace + ".modify", vo);
+	public void modify(SBoardDTO sboardDTO) {
+		sqlSession.update(Namespace + ".modify", sboardDTO);
 	}
 
 	@Override
@@ -46,22 +46,22 @@ public class SBoardDAOImpl implements SBoardDAO {
 	}
 
 	@Override
-	public List<SBoardVO> searchTitle(String searchKeyword) {
+	public List<SBoardDTO> searchTitle(String searchKeyword) {
 		return sqlSession.selectList(Namespace + ".searchtitle", searchKeyword);
 	}
 
 	@Override
-	public List<SBoardVO> searchContent(String searchKeyword) {
+	public List<SBoardDTO> searchContent(String searchKeyword) {
 		return sqlSession.selectList(Namespace + ".searchcontent", searchKeyword);
 	}
 
 	@Override
-	public List<SBoardVO> searchWriter(String searchKeyword) {
+	public List<SBoardDTO> searchWriter(String searchKeyword) {
 		return sqlSession.selectList(Namespace + ".searchwriter", searchKeyword);
 	}
 	
 	@Override
-	public List<SBoardVO> searchTandC(String searchKeyword) {
+	public List<SBoardDTO> searchTandC(String searchKeyword) {
 		return sqlSession.selectList(Namespace + ".searchtandc", searchKeyword);
 	}
 }
