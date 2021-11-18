@@ -158,8 +158,13 @@ public class HomeController {
 		return "pwcheck";
 	}
 	
-	@RequestMapping(value="signup")
+	@RequestMapping(value="/signup")
 	public String signup() {
 		return "signup";
+	}
+	
+	@RequestMapping(value="/signupsubmit")
+	public String signupsubmit() {
+		return "redirect:/";
 	}
 }
