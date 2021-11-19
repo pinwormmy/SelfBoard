@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.study.sboard.SBoardDTO.MemberDTO;
 import com.study.sboard.SBoardDTO.SBoardDTO;
+import com.study.sboard.SBoardService.MemberService;
 import com.study.sboard.SBoardService.SBoardService;
 
 /**
@@ -19,6 +21,7 @@ public class HomeController {
 	
 	@Autowired
 	private SBoardService sboardService;
+	private MemberService memberService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) throws Exception{
@@ -164,7 +167,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/signupsubmit")
-	public String signupsubmit() {
+	public String signupsubmit(MemberDTO memberDTO) throws Exception {
+		
+		memberService.signup(memberDTO);
+		
 		return "redirect:/";
 	}
 }
