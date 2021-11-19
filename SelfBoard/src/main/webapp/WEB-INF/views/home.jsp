@@ -21,8 +21,14 @@
 	<P> 
 		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현해봅시다~~ <br />
 	</P>
+
+	<form action="/login" method="post">
+		ID : <input type="text" name="loginId">
+		비밀번호 : <input type="password" name="loginPassword">
+		<input type="submit" value="로그인">
+		<button type="button" onclick="location.href='/signup'">회원가입</button>
+	</form>
 	
-	<button type="button" onclick="location.href='/signup'">회원가입</button>
 	
 	<table>
 		<thead>

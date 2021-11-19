@@ -21,6 +21,7 @@ public class HomeController {
 	
 	@Autowired
 	private SBoardService sboardService;
+	@Autowired
 	private MemberService memberService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -163,14 +164,22 @@ public class HomeController {
 	
 	@RequestMapping(value="/signup")
 	public String signup() {
+		
+		System.out.println("회원가입 버튼까지 되따");
 		return "signup";
 	}
 	
-	@RequestMapping(value="/signupsubmit")
+	@RequestMapping(value="/signupsubmit", method = RequestMethod.POST)
 	public String signupsubmit(MemberDTO memberDTO) throws Exception {
 		
 		memberService.signup(memberDTO);
 		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String login()
+	{
 		return "redirect:/";
 	}
 }
