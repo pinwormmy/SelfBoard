@@ -2,6 +2,10 @@ package com.study.sboard;
 
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -165,7 +169,6 @@ public class HomeController {
 	@RequestMapping(value="/signup")
 	public String signup() {
 		
-		System.out.println("회원가입 버튼까지 되따");
 		return "signup";
 	}
 	
@@ -178,8 +181,16 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login()
-	{
+	public String login(MemberDTO memberDTO, HttpServletRequest httpServletRequest) throws Exception{
+		
+		HttpSession session = httpServletRequest.getSession();
+		MemberDTO login = memberService.login(memberDTO);
+		
+		if(login == null)
+			session.setAttribute("member", null);
+		else
+			session.setAttribute("member", login);
+		
 		return "redirect:/";
 	}
 }
