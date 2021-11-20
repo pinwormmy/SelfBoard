@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <html>
@@ -22,7 +21,7 @@
 		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현해봅시다~~ <br />
 	</P>
 	<c:if test="${member == null}">
-		<form action="/login" method="post">
+		<form role="form" action="/login" method="post">
 			ID : <input type="text" name="userId" value="${member.userId}">
 			비밀번호 : <input type="password" name="userPassword">
 			<input type="submit" value="로그인">

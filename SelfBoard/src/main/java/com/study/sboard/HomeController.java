@@ -186,10 +186,15 @@ public class HomeController {
 		HttpSession session = httpServletRequest.getSession();
 		MemberDTO login = memberService.login(memberDTO);
 		
-		if(login == null)
+		if(login == null) {
 			session.setAttribute("member", null);
+			System.out.println("데뎅~! 널값 호출됨");
+		}
 		else
+		{
 			session.setAttribute("member", login);
+			System.out.println("로긴성공!@?");
+		}
 		
 		return "redirect:/";
 	}
