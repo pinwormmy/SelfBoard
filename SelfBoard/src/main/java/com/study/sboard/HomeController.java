@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.sboard.SBoardDTO.MemberDTO;
 import com.study.sboard.SBoardDTO.SBoardDTO;
@@ -181,20 +182,28 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(MemberDTO memberDTO, HttpServletRequest httpServletRequest) throws Exception{
+	public String login(MemberDTO memberDTO, HttpServletRequest httpServletRequest, 
+			RedirectAttributes redirectAttributes) throws Exception{
 		
 		HttpSession session = httpServletRequest.getSession();
 		MemberDTO login = memberService.login(memberDTO);
 		
 		if(login == null) {
 			session.setAttribute("member", null);
-			System.out.println("데뎅~! 널값 호출됨");
+			redirectAttributes.addFlashAttribute("loginerror", false);
 		}
 		else
 		{
 			session.setAttribute("member", login);
-			System.out.println("로긴성공!@?");
 		}
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/logout")
+	public String logout(HttpSession session) throws Exception{
+		
+		session.invalidate();
 		
 		return "redirect:/";
 	}

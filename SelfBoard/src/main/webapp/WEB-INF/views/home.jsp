@@ -30,7 +30,10 @@
 	</c:if>
 	
 	<c:if test="${member != null}">
-		<p>${member.userId} 님 로그인 중입니다.</p>
+		<p>
+		${member.userId} 님 로그인 중입니다.
+		<button type="button" onclick="location.href='/logout'">로그아웃</button>
+		</p>
 	</c:if>
 	
 	<table>
@@ -102,5 +105,12 @@
 				&searchKeyword=${searchKeyword}&pageNum=${pageEndNum + 1}">▶</a>
 	</c:if> 			
 	
+	<script type="text/javascript">
+	
+		if( ${loginerror == false} ){
+			alert("로그인 오류!! 아디 비번 확인하세요!!");
+		}
+			
+	</script>
 </body>
 </html>
