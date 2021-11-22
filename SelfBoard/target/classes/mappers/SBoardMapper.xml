@@ -12,13 +12,13 @@
 	</select>
 	
 	<insert id="write" parameterType="com.study.sboard.SBoardDTO.SBoardDTO">
-		insert into stbl(title, writer, postpassword, content)
-			values(#{title}, #{writer}, #{postpassword}, #{content})
+		insert into stbl(title, writer, postpassword, content, authority)
+			values(#{title}, #{writer}, #{postpassword}, #{content}, #{authority})
 	</insert>
 	
 	<select id="read" parameterType="int" 
 	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
-		select sno, title, writer, content, writingtime, view_cnt, postpassword
+		select sno, title, writer, content, writingtime, view_cnt, postpassword, authority
 			FROM stbl
 			WHERE sno=#{sno}
 	</select>

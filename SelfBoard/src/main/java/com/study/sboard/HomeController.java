@@ -44,10 +44,6 @@ public class HomeController {
 		model.addAttribute("postEndNum", postEndNum);
 		model.addAttribute("pageNum", pageNum);
 		
-		
-		// 멍하니 되지도 않을 생각하고 있지말고 아무 주석이라도 쓰면서 정리해가며 작성
-		// 어차피 쓰고 지우기 편한게 컴퓨터 환경 아니니
-		
 		int TotalnumPost = list.size();
 		int pageLimit = 10;
 		int pageStartNum = 1; // default	
