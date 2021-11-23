@@ -51,9 +51,16 @@
 				<tr>
 					<td>${list.sno}  </td>
 					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>
-					<td>${list.writer}  </td>
+					
+					<c:if test="${list.authority == 2}">
+						<td>${list.writer}</td>
+					</c:if>
+					<c:if test="${list.authority != 2}">
+						<td><b>${list.writer}</b></td>
+					</c:if>
+					
 					<td>${list.writingtime}</td>
-					<td>${list.view_cnt}  </td>
+					<td><b>${list.view_cnt}</b></td>
 					
 				</tr>
 			</c:forEach>			
