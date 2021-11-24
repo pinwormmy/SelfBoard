@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.sboard.SBoardDTO.MemberDTO;
+import com.study.sboard.SBoardDTO.PageDTO;
 import com.study.sboard.SBoardDTO.SBoardDTO;
 import com.study.sboard.SBoardService.MemberService;
+import com.study.sboard.SBoardService.PageService;
 import com.study.sboard.SBoardService.SBoardService;
 
 /**
@@ -28,13 +30,17 @@ public class HomeController {
 	private SBoardService sboardService;
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private PageService pageService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) throws Exception{
 		
 		List<SBoardDTO> list = sboardService.list();
 		model.addAttribute("list", list);
+		List<PageDTO> page = pageService.DividePage(null);
 		
+		/*
 		int pageNum = 1; 
 		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
 		int postEndNum = displayLimit * pageNum - 1; 
@@ -56,7 +62,7 @@ public class HomeController {
 		model.addAttribute("pageEndNum", pageEndNum);
 		model.addAttribute("pageLimit", pageLimit);
 		model.addAttribute("MaxPageNum", MaxPageNum);
-		
+		*/
 		return "home";
 	}
 	
@@ -124,7 +130,7 @@ public class HomeController {
 			list = sboardService.searchTandC(searchKeyword);
 		
 		model.addAttribute("list", list);
-		
+		/*
 		int TotalnumPost = list.size();
 		int displayLimit = 24; // 한 페이지에 표시되는 게시물 수
 		
@@ -151,7 +157,7 @@ public class HomeController {
 		model.addAttribute("pageEndNum", pageEndNum);
 		model.addAttribute("pageLimit", pageLimit);
 		model.addAttribute("MaxPageNum", MaxPageNum);
-		
+		*/
 		return "home";
 	}
 	
