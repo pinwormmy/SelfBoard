@@ -47,7 +47,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${list}" var="list" begin="${postStartNum}" end="${postEndNum}">
+			<c:forEach items="${list}" var="list" begin="${page.postStartNum}" end="${page.postEndNum}">
 				<tr>
 					<td>${list.sno}  </td>
 					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>
@@ -70,15 +70,15 @@
 	<form action="/search">
 		<select name="searchOption">
 			<option value="tandc" 
-			<c:if test="${(searchOption) == 'tandc'}">selected</c:if>>제목+내용</option>
+			<c:if test="${(page.searchOption) == 'tandc'}">selected</c:if>>제목+내용</option>
 			<option value="title" 
-			<c:if test="${(searchOption) == 'title'}">selected</c:if> >제목</option>
+			<c:if test="${(page.searchOption) == 'title'}">selected</c:if> >제목</option>
 			<option value="content" 
-			<c:if test="${(searchOption) == 'content'}">selected</c:if> >내용</option>
+			<c:if test="${(page.searchOption) == 'content'}">selected</c:if> >내용</option>
 			<option value="writer" 
-			<c:if test="${(searchOption) == 'writer'}">selected</c:if> >작성자</option>
+			<c:if test="${(page.searchOption) == 'writer'}">selected</c:if> >작성자</option>
 		</select>
-		<input type="text" name="searchKeyword" value="${searchKeyword}">
+		<input type="text" name="searchKeyword" value="${page.searchKeyword}">
 		<input type="hidden" name="pageNum" value=1>
 		<input type="submit" value="검색">
 		<input type="button" onclick="location.href='/'" value="목록"/>
@@ -90,26 +90,26 @@
 		<a href="write"><button>글쓰기</button></a>
 	</div>
 		
-	<c:if test="${pageStartNum > pageLimit}">
-			<a href="/search?searchOption=${searchOption}
-				&searchKeyword=${searchKeyword}&pageNum=${pageStartNum - 1}">◀</a>
+	<c:if test="${page.pageStartNum > page.pageLimit}">
+			<a href="/search?searchOption=${page.searchOption}
+				&searchKeyword=${page.searchKeyword}&pageNum=${page.pageStartNum - 1}">◀</a>
 	</c:if> 
 	
-	<c:forEach var="i" begin="${pageStartNum}" end="${pageEndNum}">
+	<c:forEach var="i" begin="${page.pageStartNum}" end="${page.pageEndNum}">
 		<c:choose>
-			<c:when test="${pageNum == i}">
+			<c:when test="${page.pageNum == i}">
 				<b>${i}</b>
 			</c:when>
 			<c:otherwise>
-				<a href="/search?searchOption=${searchOption}
-				&searchKeyword=${searchKeyword}&pageNum=${i}">${i}</a>
+				<a href="/search?searchOption=${page.searchOption}
+				&searchKeyword=${page.searchKeyword}&pageNum=${i}">${i}</a>
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
 	
-	<c:if test="${pageEndNum < MaxPageNum}">
-			<a href="/search?searchOption=${searchOption}
-				&searchKeyword=${searchKeyword}&pageNum=${pageEndNum + 1}">▶</a>
+	<c:if test="${page.pageEndNum < page.maxPageNum}">
+			<a href="/search?searchOption=${page.searchOption}
+				&searchKeyword=${page.searchKeyword}&pageNum=${page.pageEndNum + 1}">▶</a>
 	</c:if> 			
 	
 	<script type="text/javascript">
