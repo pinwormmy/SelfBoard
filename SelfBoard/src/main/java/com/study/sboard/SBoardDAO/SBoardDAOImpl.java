@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.study.sboard.SBoardDTO.CommentDTO;
 import com.study.sboard.SBoardDTO.SBoardDTO;
 
 @Repository
@@ -28,6 +29,11 @@ public class SBoardDAOImpl implements SBoardDAO {
 	@Override
 	public SBoardDTO read(int sno) {
 		return sqlSession.selectOne(Namespace + ".read", sno);
+	}
+	
+	@Override
+	public List<CommentDTO> readComment(int sno) {
+		return sqlSession.selectList(Namespace + ".readComment", sno);
 	}
 
 	@Override
@@ -64,4 +70,6 @@ public class SBoardDAOImpl implements SBoardDAO {
 	public List<SBoardDTO> searchTandC(String searchKeyword) {
 		return sqlSession.selectList(Namespace + ".searchtandc", searchKeyword);
 	}
+
+	
 }

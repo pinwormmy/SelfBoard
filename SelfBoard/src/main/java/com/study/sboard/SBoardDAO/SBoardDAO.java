@@ -2,6 +2,7 @@ package com.study.sboard.SBoardDAO;
 
 import java.util.List;
 
+import com.study.sboard.SBoardDTO.CommentDTO;
 import com.study.sboard.SBoardDTO.SBoardDTO;
 
 public interface SBoardDAO {
@@ -11,6 +12,7 @@ public interface SBoardDAO {
 	public void write(SBoardDTO sboardDTO);
 
 	public SBoardDTO read(int sno);
+	public List<CommentDTO> readComment(int sno);
 
 	public void delete(int sno);
 

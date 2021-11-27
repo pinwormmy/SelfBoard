@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.study.sboard.SBoardDAO.SBoardDAO;
+import com.study.sboard.SBoardDTO.CommentDTO;
 import com.study.sboard.SBoardDTO.SBoardDTO;
 
 @Service
@@ -28,6 +29,11 @@ public class SBoardServiceImpl implements SBoardService {
 	@Override
 	public SBoardDTO read(int sno) {
 		return sboardDAO.read(sno);
+	}
+	
+	@Override
+	public List<CommentDTO> readComment(int sno) {
+		return sboardDAO.readComment(sno);
 	}
 
 	@Override
@@ -61,4 +67,6 @@ public class SBoardServiceImpl implements SBoardService {
 	public List<SBoardDTO> searchTandC(String searchKeyword) {
 		return sboardDAO.searchTandC(searchKeyword);
 	}
+
+	
 }

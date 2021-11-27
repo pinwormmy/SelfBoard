@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.study.sboard.SBoardDTO.CommentDTO;
 import com.study.sboard.SBoardDTO.MemberDTO;
 import com.study.sboard.SBoardDTO.PageDTO;
 import com.study.sboard.SBoardDTO.SBoardDTO;
@@ -68,6 +69,8 @@ public class HomeController {
 		
 		SBoardDTO read = sboardService.read(sno);
 		model.addAttribute("read", read);
+		List<CommentDTO> readComment = sboardService.readComment(sno);
+		model.addAttribute("readComment", readComment);
 		
 		sboardService.postviews(sno);
 	
