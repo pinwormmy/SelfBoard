@@ -50,18 +50,21 @@
 			<c:forEach items="${list}" var="list" begin="${page.postStartNum}" end="${page.postEndNum}">
 				<tr>
 					<td>${list.sno}  </td>
+					
 					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>
 					
+					<td>
 					<c:if test="${list.authority == 2}">
-						<td>${list.writer}</td>
+						${list.writer}
 					</c:if>
-					<c:if test="${list.authority != 2}">
-						<td><b>${list.writer}</b></td>
+					<c:if test="${list.authority == 1}">
+						<b>${list.writer}</b>
 					</c:if>
+					</td>
 					
 					<td>${list.writingtime}</td>
-					<td><b>${list.view_cnt}</b></td>
 					
+					<td><b>${list.view_cnt}</b></td>
 				</tr>
 			</c:forEach>			
 		</tbody>

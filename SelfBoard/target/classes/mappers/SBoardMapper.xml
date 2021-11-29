@@ -70,7 +70,7 @@
 	<!-- 검색 옵션에 따른 4가지 조회방법 -->
 	<select id="searchtitle" parameterType="String" 
 	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
-		select sno, title, writer, writingtime, view_cnt 
+		select sno, title, writer, writingtime, view_cnt, authority
 			FROM stbl
 			WHERE title LIKE concat('%',#{searchKeyword},'%') 
 			ORDER by sno desc
@@ -78,7 +78,7 @@
 	
 	<select id="searchcontent" parameterType="String" 
 	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
-		select sno, title, writer, writingtime, view_cnt 
+		select sno, title, writer, writingtime, view_cnt, authority
 			FROM stbl
 			WHERE content LIKE concat('%',#{searchKeyword},'%') 
 			ORDER by sno desc
@@ -86,7 +86,7 @@
 	
 	<select id="searchwriter" parameterType="String" 
 	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
-		select sno, title, writer, writingtime, view_cnt 
+		select sno, title, writer, writingtime, view_cnt, authority
 			FROM stbl
 			WHERE writer LIKE concat('%',#{searchKeyword},'%') 
 			ORDER by sno desc
@@ -94,7 +94,7 @@
 	
 	<select id="searchtandc" parameterType="String" 
 	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
-		select sno, title, writer, writingtime, view_cnt 
+		select sno, title, writer, writingtime, view_cnt, authority
 			FROM stbl
 			WHERE title LIKE concat('%',#{searchKeyword},'%') 
 				or content LIKE concat('%',#{searchKeyword},'%')
