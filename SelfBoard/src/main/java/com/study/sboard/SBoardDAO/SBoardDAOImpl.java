@@ -35,6 +35,11 @@ public class SBoardDAOImpl implements SBoardDAO {
 	public List<CommentDTO> readComment(int sno) {
 		return sqlSession.selectList(Namespace + ".readComment", sno);
 	}
+	
+	@Override
+	public void writeComment(CommentDTO commentDTO) {
+		sqlSession.insert(Namespace + ".writeComment", commentDTO);
+	}
 
 	@Override
 	public void delete(int sno) {
@@ -70,6 +75,8 @@ public class SBoardDAOImpl implements SBoardDAO {
 	public List<SBoardDTO> searchTandC(String searchKeyword) {
 		return sqlSession.selectList(Namespace + ".searchtandc", searchKeyword);
 	}
+
+	
 
 	
 }

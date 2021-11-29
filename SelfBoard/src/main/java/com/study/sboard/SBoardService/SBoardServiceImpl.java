@@ -37,6 +37,11 @@ public class SBoardServiceImpl implements SBoardService {
 	}
 
 	@Override
+	public void writeComment(CommentDTO commentDTO) {
+		sboardDAO.writeComment(commentDTO);
+	}
+	
+	@Override
 	public void delete(int sno) {
 		sboardDAO.delete(sno);
 	}
@@ -67,6 +72,8 @@ public class SBoardServiceImpl implements SBoardService {
 	public List<SBoardDTO> searchTandC(String searchKeyword) {
 		return sboardDAO.searchTandC(searchKeyword);
 	}
+
+	
 
 	
 }

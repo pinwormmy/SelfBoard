@@ -97,7 +97,7 @@ public class HomeController {
 	
 		sboardService.modify(sboardDTO);
 		
-		return "redirect:/";
+		return "redirect:/Bpost?sno=" + sboardDTO.getSno();
 	}
 	
 	@RequestMapping(value="/search")
@@ -179,8 +179,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/commentsubmit")
-	public String writeComment() {
+	public String writeComment(CommentDTO commentDTO) throws Exception{
 		
-		return "redirect:/Bpost";
+		sboardService.writeComment(commentDTO);
+		
+		return "redirect:/Bpost?sno=" + commentDTO.getPostNum();
 	}
 }

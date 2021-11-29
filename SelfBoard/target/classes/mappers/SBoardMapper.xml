@@ -30,6 +30,11 @@
 			WHERE postNum=#{sno}
 	</select>
 	
+	<insert id="writeComment" parameterType="com.study.sboard.SBoardDTO.CommentDTO">
+		insert into comment_table(postNum, writer, commentPassword, commentContent, authority)
+			values(#{postNum}, #{writer}, #{commentPassword}, #{commentContent}, #{authority})
+	</insert>
+	
 
 	<delete id="delete" parameterType="int">
 		delete from stbl where sno=#{sno}

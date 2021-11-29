@@ -14,6 +14,7 @@ public interface SBoardService {
 
 	public SBoardDTO read(int sno);
 	public List<CommentDTO> readComment(int sno);
+	public void writeComment(CommentDTO commentDTO);
 
 	public void delete(int sno);
 
@@ -25,5 +26,7 @@ public interface SBoardService {
 	public List<SBoardDTO> searchContent(String searchKeyword);
 	public List<SBoardDTO> searchWriter(String searchKeyword);
 	public List<SBoardDTO> searchTandC(String searchKeyword);
+
+	
 
 }
