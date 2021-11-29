@@ -177,4 +177,10 @@ public class HomeController {
 		
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value="/commentsubmit")
+	public String writeComment() {
+		
+		return "redirect:/Bpost";
+	}
 }
