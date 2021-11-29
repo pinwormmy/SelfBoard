@@ -136,9 +136,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/checkCommentPassword")
-	public String checkCommentPassword(int postNum, Model model) {
-		List<CommentDTO> readComment = sboardService.readComment(postNum);
-		model.addAttribute("readComment", readComment);
+	public String checkCommentPassword(CommentDTO commentDTO, Model model) {
+		CommentDTO readCommentOne = sboardService.readCommentOne(commentDTO);
+		model.addAttribute("readComment", readCommentOne);
 		
 		return "checkCommentPassword";
 	}

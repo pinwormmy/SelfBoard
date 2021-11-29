@@ -30,6 +30,13 @@
 			WHERE postNum=#{postNum}
 	</select>
 	
+	<select id="readCommentOne" parameterType="com.study.sboard.SBoardDTO.CommentDTO" 
+	resultType="com.study.sboard.SBoardDTO.CommentDTO">
+		select postNum, commentNum, writer, commentContent, writeTime, commentPassword, authority
+			FROM comment_table
+			WHERE postNum=#{postNum} and commentNum=#{commentNum}
+	</select>
+	
 	<insert id="writeComment" parameterType="com.study.sboard.SBoardDTO.CommentDTO">
 		insert into comment_table(postNum, writer, commentPassword, commentContent, authority)
 			values(#{postNum}, #{writer}, #{commentPassword}, #{commentContent}, #{authority})

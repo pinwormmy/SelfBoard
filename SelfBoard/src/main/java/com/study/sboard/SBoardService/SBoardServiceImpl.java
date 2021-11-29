@@ -35,6 +35,11 @@ public class SBoardServiceImpl implements SBoardService {
 	public List<CommentDTO> readComment(int sno) {
 		return sboardDAO.readComment(sno);
 	}
+	
+	@Override
+	public CommentDTO readCommentOne(CommentDTO commentDTO) {
+		return sboardDAO.readCommentOne(commentDTO);
+	}
 
 	@Override
 	public void writeComment(CommentDTO commentDTO) {

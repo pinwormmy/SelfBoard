@@ -31,6 +31,8 @@ public interface SBoardDAO {
 
 	public void deleteComment(CommentDTO commentDTO);
 
+	public CommentDTO readCommentOne(CommentDTO commentDTO);
+
 	
 
 }

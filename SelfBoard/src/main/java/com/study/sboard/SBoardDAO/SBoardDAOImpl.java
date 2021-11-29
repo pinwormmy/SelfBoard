@@ -81,4 +81,9 @@ public class SBoardDAOImpl implements SBoardDAO {
 		return sqlSession.selectList(Namespace + ".searchtandc", searchKeyword);
 	}
 
+	@Override
+	public CommentDTO readCommentOne(CommentDTO commentDTO) {
+		return sqlSession.selectOne(Namespace + ".readCommentOne", commentDTO);
+	}
+
 }
