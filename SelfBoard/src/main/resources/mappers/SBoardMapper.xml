@@ -27,13 +27,18 @@
 	resultType="com.study.sboard.SBoardDTO.CommentDTO">
 		select postNum, commentNum, writer, commentContent, writeTime, commentPassword, authority
 			FROM comment_table
-			WHERE postNum=#{sno}
+			WHERE postNum=#{postNum}
 	</select>
 	
 	<insert id="writeComment" parameterType="com.study.sboard.SBoardDTO.CommentDTO">
 		insert into comment_table(postNum, writer, commentPassword, commentContent, authority)
 			values(#{postNum}, #{writer}, #{commentPassword}, #{commentContent}, #{authority})
 	</insert>
+	
+	<delete id="deleteComment" parameterType="com.study.sboard.SBoardDTO.CommentDTO">
+		delete from comment_table
+			WHERE postNum=#{postNum} and commentNum=#{commentNum}
+	</delete>
 	
 
 	<delete id="delete" parameterType="int">

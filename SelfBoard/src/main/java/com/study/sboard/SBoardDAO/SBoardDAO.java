@@ -29,6 +29,8 @@ public interface SBoardDAO {
 	
 	public List<SBoardDTO> searchTandC(String searchKeyword);
 
+	public void deleteComment(CommentDTO commentDTO);
+
 	
 
 }

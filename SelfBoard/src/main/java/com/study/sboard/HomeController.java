@@ -49,13 +49,11 @@ public class HomeController {
 		return "home";
 	}
 	
-	// 글쓰기 버튼 눌러서 작성 페이지 이동
 	@RequestMapping(value="/write")
 	public String write() {
 		return "write";
 	}
 	
-	// 글 작성 완료 누르면 글 게시하고 다시 글목록 으로 복귀
 	@RequestMapping(value="/writesubmit")
 	public String writesubmit(SBoardDTO sboardDTO) {
 	
@@ -69,6 +67,7 @@ public class HomeController {
 		
 		SBoardDTO read = sboardService.read(sno);
 		model.addAttribute("read", read);
+		
 		List<CommentDTO> readComment = sboardService.readComment(sno);
 		model.addAttribute("readComment", readComment);
 		
@@ -90,7 +89,6 @@ public class HomeController {
 		
 		return "modify";
 	}
-	
 	
 	@RequestMapping(value="/modifysubmit")
 	public String modifysubmit(SBoardDTO sboardDTO) {
@@ -137,6 +135,14 @@ public class HomeController {
 		return "pwcheck";
 	}
 	
+	@RequestMapping(value="/checkCommentPassword")
+	public String checkCommentPassword(int postNum, Model model) {
+		List<CommentDTO> readComment = sboardService.readComment(postNum);
+		model.addAttribute("readComment", readComment);
+		
+		return "checkCommentPassword";
+	}
+	
 	@RequestMapping(value="/signup")
 	public String signup() {
 		
@@ -178,11 +184,17 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value="/commentsubmit")
+	@RequestMapping(value="/commentSubmit")
 	public String writeComment(CommentDTO commentDTO) throws Exception{
 		
 		sboardService.writeComment(commentDTO);
 		
+		return "redirect:/Bpost?sno=" + commentDTO.getPostNum();
+	}
+	
+	@RequestMapping(value="/deleteComment")
+	public String deleteComment(CommentDTO commentDTO) {
+		sboardService.deleteComment(commentDTO);
 		return "redirect:/Bpost?sno=" + commentDTO.getPostNum();
 	}
 }
