@@ -34,6 +34,7 @@ public class HomeController {
 	@Autowired
 	private PageService pageService;
 	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) throws Exception{
 		

@@ -51,7 +51,12 @@
 				<tr>
 					<td>${list.sno}  </td>
 					
-					<td><a href="Bpost?sno=${list.sno}">${list.title}</a></td>
+					<td><a href="Bpost?sno=${list.sno}">${list.title}</a>
+					<c:if test="${commentCount > 0}">
+					( ${commentCount} )
+					</c:if>
+					
+					</td>
 					
 					<td>
 					<c:if test="${list.authority == 2}">
