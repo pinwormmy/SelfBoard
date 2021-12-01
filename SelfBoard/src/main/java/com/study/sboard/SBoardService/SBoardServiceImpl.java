@@ -82,10 +82,5 @@ public class SBoardServiceImpl implements SBoardService {
 	public List<SBoardDTO> searchTandC(String searchKeyword) {
 		return sboardDAO.searchTandC(searchKeyword);
 	}
-
-	
-
-	
-
 	
 }

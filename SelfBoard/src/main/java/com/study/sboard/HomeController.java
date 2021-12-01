@@ -46,7 +46,7 @@ public class HomeController {
 		pageDTO.setTotalnumPost(list.size());
 		pageService.DividePage(pageDTO);
 		model.addAttribute("page", pageDTO);
-
+		
 		return "home";
 	}
 	
