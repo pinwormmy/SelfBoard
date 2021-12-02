@@ -189,13 +189,17 @@ public class HomeController {
 	public String writeComment(CommentDTO commentDTO) throws Exception{
 		
 		sboardService.writeComment(commentDTO);
+		sboardService.updateCommentCounter(commentDTO.getPostNum());
 		
 		return "redirect:/Bpost?sno=" + commentDTO.getPostNum();
 	}
 	
 	@RequestMapping(value="/deleteComment")
 	public String deleteComment(CommentDTO commentDTO) {
+		
 		sboardService.deleteComment(commentDTO);
+		sboardService.updateCommentCounter(commentDTO.getPostNum());
+		
 		return "redirect:/Bpost?sno=" + commentDTO.getPostNum();
 	}
 }

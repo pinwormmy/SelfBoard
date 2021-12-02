@@ -6,7 +6,7 @@
 	<!-- 게시판 기본목록 -->
 	<select id="list" parameterType="com.study.sboard.SBoardDTO.SBoardDTO" 
 	resultType="com.study.sboard.SBoardDTO.SBoardDTO">
-		select sno, title, writer, writingtime, view_cnt, authority
+		select sno, title, writer, writingtime, view_cnt, authority, countComment
 			FROM stbl
 			ORDER by sno desc
 	</select>
@@ -101,5 +101,12 @@
 			ORDER by sno desc
 	</select>
 	<!-- 여기까지 검색 옵션에 따른 4가지 조회방법 -->
+	
+	<update id="updateCommentCounter" parameterType="int">
+		update stbl 
+			set countComment = 
+			(SELECT COUNT(commentNum) FROM comment_table WHERE postNum=#{postNum})
+			WHERE sno=#{postNum}
+	</update>
 
 </mapper>

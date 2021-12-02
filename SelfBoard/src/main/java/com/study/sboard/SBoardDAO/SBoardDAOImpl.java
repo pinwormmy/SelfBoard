@@ -85,5 +85,10 @@ public class SBoardDAOImpl implements SBoardDAO {
 	public CommentDTO readCommentOne(CommentDTO commentDTO) {
 		return sqlSession.selectOne(Namespace + ".readCommentOne", commentDTO);
 	}
+	
+	@Override
+	public void updateCommentCounter(int postNum) {
+		sqlSession.update(Namespace + ".updateCommentCounter", postNum);
+	}
 
 }

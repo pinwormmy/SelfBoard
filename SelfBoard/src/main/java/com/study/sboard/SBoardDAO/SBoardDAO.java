@@ -33,6 +33,8 @@ public interface SBoardDAO {
 
 	public CommentDTO readCommentOne(CommentDTO commentDTO);
 
+	public void updateCommentCounter(int postNum);
+
 	
 
 }

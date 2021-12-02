@@ -52,8 +52,8 @@
 					<td>${list.sno}  </td>
 					
 					<td><a href="Bpost?sno=${list.sno}">${list.title}</a>
-					<c:if test="${commentCount > 0}">
-					( ${commentCount} )
+					<c:if test="${list.countComment > 0}">
+					<span style="color:grey;">[${list.countComment}]</span>
 					</c:if>
 					
 					</td>

@@ -30,6 +30,7 @@ public interface SBoardService {
 	public List<SBoardDTO> searchWriter(String searchKeyword);
 	public List<SBoardDTO> searchTandC(String searchKeyword);
 
+	public void updateCommentCounter(int postNum);
 	
 
 	

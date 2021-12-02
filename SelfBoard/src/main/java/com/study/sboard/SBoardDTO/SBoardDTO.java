@@ -12,6 +12,7 @@ public class SBoardDTO {
 	private int view_cnt;
 	private String postpassword;
 	private int authority; // 로그인 여부에 따른 게시물 권한부여. 관리자 0. 회원1. 비회원2.
+	private int countComment;
 	
 	
 	public int getSno() {
@@ -62,6 +63,12 @@ public class SBoardDTO {
 	}
 	public void setAuthority(int authority) {
 		this.authority = authority;
+	}
+	public int getCountComment() {
+		return countComment;
+	}
+	public void setCountComment(int countComment) {
+		this.countComment = countComment;
 	}
 	
 	
