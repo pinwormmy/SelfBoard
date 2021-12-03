@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.sboard.SBoardDTO.CommentDTO;
@@ -146,8 +147,20 @@ public class HomeController {
 	
 	@RequestMapping(value="/signup")
 	public String signup() {
-		
 		return "signup";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/signupIdCheck", method = RequestMethod.POST)
+	public int signupIdCheck(HttpServletRequest httpServletRequest) throws Exception{
+				
+		String userId = httpServletRequest.getParameter("userId");
+		System.out.println("입력한 아디 제대로 받아왔나? : " + userId);
+				
+		int checkIdResult = memberService.ckeckId(userId);
+		System.out.println("중복 결과는? : " + checkIdResult);
+		
+		return checkIdResult;
 	}
 	
 	@RequestMapping(value="/signupsubmit", method = RequestMethod.POST)
