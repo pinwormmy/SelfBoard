@@ -47,7 +47,7 @@ public class HomeController {
 		pageDTO.setTotalnumPost(list.size());
 		pageService.DividePage(pageDTO);
 		model.addAttribute("page", pageDTO);
-		
+				
 		return "home";
 	}
 	
@@ -147,6 +147,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/signup")
 	public String signup() {
+		
 		return "signup";
 	}
 	
@@ -155,10 +156,7 @@ public class HomeController {
 	public int signupIdCheck(HttpServletRequest httpServletRequest) throws Exception{
 				
 		String userId = httpServletRequest.getParameter("userId");
-		System.out.println("입력한 아디 제대로 받아왔나? : " + userId);
-				
 		int checkIdResult = memberService.ckeckId(userId);
-		System.out.println("중복 결과는? : " + checkIdResult);
 		
 		return checkIdResult;
 	}

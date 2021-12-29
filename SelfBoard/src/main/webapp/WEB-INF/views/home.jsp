@@ -24,7 +24,7 @@
 		<form role="form" action="/login" method="post">
 			ID : <input type="text" name="userId" value="${member.userId}">
 			비밀번호 : <input type="password" name="userPassword">
-			<input type="submit" value="로그인">
+			<button>로그인</button>
 			<button type="button" onclick="location.href='/signup'">회원가입</button>
 		</form>
 	</c:if>
