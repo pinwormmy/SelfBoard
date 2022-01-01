@@ -3,21 +3,32 @@
 
 <html>
 <head>
-	<title>ㅁㅁㅁ요충이 게시판ㅁㅁㅁ</title>
+	<title>게시판 만들기 공부 : 메인화면 </title>
 	<style type="text/css">
 		a {color:black;}
 		a {text-decoration:none;}
 		a:hover {text-decoration:underline;}
 		
 		div{width: 45%; text-align:right;}
+		
+		
+		table {width: 100%; border-top: 2px solid #444444; border-bottom: 2px solid #444444; border-collapse: collapse;}
+		th, td {border-bottom: 1px solid #444444; padding: 10px;}
+		
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
 	</style>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-	<h1>
+	<div style="font-size:50px;">
 		<a href="/">스프링 공부 - 게시판 만들기</a>
-	</h1>
+	</div>
+		
 	
-	<P> 
+	<P style="font-family:궁서;"> 
 		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현해봅시다~~ <br />
 	</P>
 	<c:if test="${member == null}">
@@ -75,6 +86,8 @@
 		</tbody>
 	</table>
 	
+	<br>
+	
 	<form action="/search">
 		<select name="searchOption">
 			<option value="tandc" 
@@ -90,7 +103,6 @@
 		<input type="hidden" name="pageNum" value=1>
 		<input type="submit" value="검색">
 		<input type="button" onclick="location.href='/'" value="목록"/>
-		
 		
 	</form>
 	
@@ -122,7 +134,7 @@
 	
 	<script type="text/javascript">
 	
-		if( ${loginerror == false} ){
+		if(${loginerror == false} ){
 			alert("로그인 오류!! 아디 비번 확인하세요!!");
 		}
 			
