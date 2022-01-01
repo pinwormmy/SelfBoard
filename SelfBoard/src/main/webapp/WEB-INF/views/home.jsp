@@ -18,6 +18,9 @@
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
 		
 		*{font-family:'Noto Sans KR';}
+		
+		background-image: url("https://upload3.inven.co.kr/upload/2022/01/01/bbs/i15306449032.jpg");
+		
 	</style>
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
