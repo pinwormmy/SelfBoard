@@ -16,6 +16,8 @@
 		th, td {border-bottom: 1px solid #444444; padding: 10px;}
 		
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+		
+		*{font-family:'Noto Sans KR';}
 	</style>
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,14 +25,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div style="font-size:50px;">
-		<a href="/">스프링 공부 - 게시판 만들기</a>
-	</div>
-		
+	<p style="font-size:50px;"><a href="/"> 자바:스프링 공부 - 게시판 만들기 </a></p>
+	핵심 요소 몇 가지 구현 후 홈페이지 제작으로 넘어간다!
 	
-	<P style="font-family:궁서;"> 
-		기능 이것저것 추가하면서 공부해보고, 다듬어서 최종적으론 단독 컬럼형 게시판을 구현해봅시다~~ <br />
-	</P>
 	<c:if test="${member == null}">
 		<form role="form" action="/login" method="post">
 			ID : <input type="text" name="userId" value="${member.userId}">
