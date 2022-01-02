@@ -17,10 +17,12 @@
 		
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
 		
-		*{font-family:'Noto Sans KR';}
+		*{font-family:'Noto Sans KR'; background-color:rgba(255,255,255,0.5);}
 		
-		background-image: url("https://upload3.inven.co.kr/upload/2022/01/01/bbs/i15306449032.jpg");
-		
+		body{
+			background-image: url('https://vlee.kr/wp-content/uploads/2020/03/%EC%95%84%EC%9D%B4%EC%9C%A0_01_1920.jpg');
+		}
+				
 	</style>
 	
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +31,7 @@
 </head>
 <body>
 	<p style="font-size:50px;"><a href="/"> 자바:스프링 공부 - 게시판 만들기 </a></p>
-	핵심 요소 몇 가지 구현 후 홈페이지 제작으로 넘어간다!
+	<p>몇 가지 구현 후 홈페이지 제작으로 넘어간다!</p>
 	
 	<c:if test="${member == null}">
 		<form role="form" action="/login" method="post">
