@@ -17,7 +17,7 @@
 		
 		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
 		
-		*{font-family:'Noto Sans KR'; background-color:rgba(255,255,255,0.5);}
+		*{font-family:'Noto Sans KR'; background-color:rgba(255,255,255,0.3);}
 		
 		body{
 			background-image: url('https://vlee.kr/wp-content/uploads/2020/03/%EC%95%84%EC%9D%B4%EC%9C%A0_01_1920.jpg');
@@ -108,6 +108,7 @@
 		
 	</form>
 	
+
 	<div>
 		<a href="write"><button>글쓰기</button></a>
 	</div>
